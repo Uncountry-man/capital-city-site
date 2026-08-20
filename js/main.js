@@ -190,26 +190,114 @@ function setupDownloadCarousel() {
 window.scrollDownloadCarousel = scrollDownloadCarousel;
 
 /* ==========================================================================
-   5. SMARTPHONE MOCKUP CAROUSEL (TOUCH SWIPE & BUTTONS)
+   5. SMARTPHONE MOCKUP 3D COVERFLOW CAROUSEL
    ========================================================================== */
+function updatePhone3DStates() {
+  const track = document.getElementById('phone-track');
+  if (!track) return;
+
+  const slides = Array.from(track.querySelectorAll('.phone-mockup'));
+  if (!slides.length) return;
+
+  const trackRect = track.getBoundingClientRect();
+  const trackCenter = trackRect.left + trackRect.width / 2;
+
+  let closestSlide = null;
+  let minDistance = Infinity;
+  let activeIndex = 0;
+
+  slides.forEach((slide, idx) => {
+    const rect = slide.getBoundingClientRect();
+    const slideCenter = rect.left + rect.width / 2;
+    const distance = Math.abs(trackCenter - slideCenter);
+
+    if (distance < minDistance) {
+      minDistance = distance;
+      closestSlide = slide;
+      activeIndex = idx;
+    }
+  });
+
+  slides.forEach((slide, idx) => {
+    slide.classList.remove('active-slide', 'prev-slide', 'next-slide');
+    if (idx === activeIndex) {
+      slide.classList.add('active-slide');
+    } else if (idx === activeIndex - 1) {
+      slide.classList.add('prev-slide');
+    } else if (idx === activeIndex + 1) {
+      slide.classList.add('next-slide');
+    }
+  });
+
+  // Update Counter Display
+  const currentIdxEl = document.getElementById('phone-current-idx');
+  const totalIdxEl = document.getElementById('phone-total-idx');
+  if (currentIdxEl) {
+    currentIdxEl.textContent = String(activeIndex + 1).padStart(2, '0');
+  }
+  if (totalIdxEl) {
+    totalIdxEl.textContent = String(slides.length).padStart(2, '0');
+  }
+}
+
 function scrollPhoneCarousel(direction) {
   const track = document.getElementById('phone-track');
   if (!track) return;
 
-  const firstSlide = track.querySelector('.phone-mockup');
-  const slideWidth = firstSlide ? firstSlide.offsetWidth : 450;
-  const gap = 24;
+  const slides = Array.from(track.querySelectorAll('.phone-mockup'));
+  if (!slides.length) return;
 
-  track.scrollBy({
-    left: direction * (slideWidth + gap),
-    behavior: 'smooth'
-  });
+  // Find currently active slide index
+  const activeSlide = track.querySelector('.phone-mockup.active-slide') || slides[0];
+  let currentIndex = slides.indexOf(activeSlide);
+  if (currentIndex === -1) currentIndex = 0;
+
+  let nextIndex = currentIndex + direction;
+  if (nextIndex < 0) nextIndex = 0;
+  if (nextIndex >= slides.length) nextIndex = slides.length - 1;
+
+  const targetSlide = slides[nextIndex];
+  if (targetSlide) {
+    targetSlide.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center'
+    });
+    setTimeout(updatePhone3DStates, 250);
+  }
 }
 
 function setupPhoneCarousel() {
   const track = document.getElementById('phone-track');
   if (!track) return;
 
+  const slides = Array.from(track.querySelectorAll('.phone-mockup'));
+
+  // Click on any slide to center it
+  slides.forEach((slide) => {
+    slide.addEventListener('click', () => {
+      slide.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center'
+      });
+      setTimeout(updatePhone3DStates, 250);
+    });
+  });
+
+  // Scroll listener for 3D state update
+  let scrollTicking = false;
+  track.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      requestAnimationFrame(() => {
+        updatePhone3DStates();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // Mouse Drag Support
   let isDown = false;
   let startX = 0;
   let scrollLeft = 0;
@@ -227,6 +315,7 @@ function setupPhoneCarousel() {
     isDown = false;
     track.style.cursor = 'grab';
     track.style.scrollBehavior = 'smooth';
+    updatePhone3DStates();
   };
 
   track.addEventListener('mouseleave', stopDrag, { passive: true });
@@ -238,6 +327,9 @@ function setupPhoneCarousel() {
     const walk = (x - startX) * 1.3;
     track.scrollLeft = scrollLeft - walk;
   }, { passive: true });
+
+  // Initial update
+  updatePhone3DStates();
 }
 
 window.scrollPhoneCarousel = scrollPhoneCarousel;

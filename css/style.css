@@ -906,27 +906,30 @@ button {
 }
 
 /* ==========================================================================
-   ANDROID SMARTPHONE MOCKUPS CAROUSEL
+   ANDROID SMARTPHONE MOCKUPS 3D COVERFLOW CAROUSEL
    ========================================================================== */
 .phone-carousel-wrapper {
   position: relative;
   width: 100%;
   display: flex;
-  align-items: center;
+  flex-direction: column;
 }
 
 .phone-carousel-track {
-  width: 100%;
+  width: calc(100% + (2 * var(--space-container-px)));
+  margin-left: calc(-1 * var(--space-container-px));
+  margin-right: calc(-1 * var(--space-container-px));
   display: flex;
   align-items: center;
-  gap: clamp(1.75rem, 3.5vw, 3rem);
+  gap: clamp(1.25rem, 2vw, 2rem);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: clamp(1.25rem, 2vw, 2rem) 0.5rem clamp(2rem, 3.5vw, 3rem);
+  padding: 2.5rem var(--space-container-px) 3rem;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  perspective: 1200px;
 }
 
 .phone-carousel-track::-webkit-scrollbar {
@@ -936,40 +939,67 @@ button {
 .phone-mockup {
   flex: 0 0 auto;
   scroll-snap-align: center;
-  width: 530px;
-  max-width: 82vw;
-  transition: transform 0.25s ease;
+  width: clamp(380px, 46vw, 520px);
+  max-width: 80vw;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.35s ease,
+              filter 0.35s ease;
+  will-change: transform, opacity;
+  transform: perspective(900px) rotateY(10deg) scale(0.92);
+  opacity: 0.6;
+  filter: brightness(0.75);
+  cursor: pointer;
 }
 
-.phone-mockup:hover {
-  transform: translateY(-4px);
+.phone-mockup.active-slide {
+  transform: perspective(900px) rotateY(0deg) scale(1);
+  opacity: 1;
+  filter: brightness(1);
+  z-index: 10;
+}
+
+.phone-mockup.prev-slide {
+  transform: perspective(900px) rotateY(10deg) scale(0.92);
+  opacity: 0.7;
+  filter: brightness(0.82);
+}
+
+.phone-mockup.next-slide {
+  transform: perspective(900px) rotateY(-10deg) scale(0.92);
+  opacity: 0.7;
+  filter: brightness(0.82);
 }
 
 .phone-frame {
   position: relative;
   background: #081018;
-  border: 10px solid #132130;
-  border-radius: 36px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+  border: 6px solid #132130;
+  border-radius: 26px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
   aspect-ratio: 16 / 9;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-color 0.2s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.phone-mockup.active-slide .phone-frame {
+  border-color: rgba(14, 165, 233, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), 0 0 14px rgba(14, 165, 233, 0.2);
 }
 
 .phone-mockup:hover .phone-frame {
-  border-color: rgba(14, 165, 233, 0.4);
+  border-color: rgba(56, 189, 248, 0.5);
 }
 
 .phone-camera-hole {
   position: absolute;
-  left: 14px;
+  left: 12px;
   top: 50%;
   transform: translateY(-50%);
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #03060a;
   border: 1.5px solid #1a2c3f;
@@ -978,12 +1008,12 @@ button {
 
 .phone-home-indicator {
   position: absolute;
-  right: 10px;
+  right: 8px;
   top: 50%;
   transform: translateY(-50%);
-  width: 4px;
-  height: 44px;
-  border-radius: 10px;
+  width: 3.5px;
+  height: 36px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.25);
   z-index: 10;
 }
@@ -992,7 +1022,7 @@ button {
   width: 100%;
   height: 100%;
   background: #000;
-  border-radius: 25px;
+  border-radius: 20px;
   overflow: hidden;
   position: relative;
 }
@@ -1004,36 +1034,57 @@ button {
   display: block;
   user-select: none;
   -webkit-user-drag: none;
-  border-radius: 25px;
+  border-radius: 20px;
 }
 
-.carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: rgba(12, 21, 32, 0.92);
-  border: 1px solid #1a2d42;
-  color: #fff;
+/* Controls strictly at Bottom-Left */
+.phone-carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  justify-content: flex-start;
+}
+
+.phone-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--bg-card);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  color: var(--text-1);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 25;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
-.carousel-arrow:hover {
+.phone-nav-btn:hover {
   background: var(--blue);
   border-color: var(--blue);
   color: #fff;
-  transform: translateY(-50%) scale(1.08);
+  transform: translateY(-2px);
 }
 
-.carousel-arrow.prev { left: -20px; }
-.carousel-arrow.next { right: -20px; }
+.phone-nav-btn:active {
+  transform: translateY(0) scale(0.95);
+}
+
+.phone-carousel-counter {
+  font-family: var(--font-label);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-3);
+  margin-left: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.phone-carousel-counter #phone-current-idx {
+  color: var(--blue);
+  font-weight: 800;
+}
 
 /* Icon-First Step Grid */
 .icon-steps-grid {
@@ -1268,28 +1319,38 @@ button {
 }
 
 /* ==========================================================================
+   FLOATING DISCORD FAB BUTTON (SIMPLE & CLEAN)
+   ========================================================================== */
+.discord-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--discord);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.discord-fab:hover {
+  background: var(--discord-hover);
+}
+
+.discord-fab:active {
+  transform: scale(0.96);
+}
+
+/* ==========================================================================
    RESPONSIVE DESIGN (MOBILE FIRST & TABLET ADJUSTMENTS)
    ========================================================================== */
 @media (max-width: 900px) {
-  .carousel-arrow {
-    display: none;
-  }
-
-  .phone-mockup {
-    width: 86vw;
-  }
-
-  .phone-frame {
-    border-width: 6px;
-    border-radius: 20px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  }
-
-  .phone-screen,
-  .phone-screen img {
-    border-radius: 14px;
-  }
-
   .icon-steps-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1336,6 +1397,82 @@ button {
     padding-top: clamp(2.5rem, 8vh, 4.5rem);
   }
 
+  /* Mockup Clean Mobile Layout (Zero Cutoffs, Room for Shadows) */
+  .phone-carousel-track {
+    padding: 1.5rem var(--space-container-px) 2rem;
+    gap: 0.75rem;
+  }
+
+  .phone-mockup {
+    width: 78vw;
+    max-width: 320px;
+    transform: perspective(500px) rotateY(4deg) scale(0.95);
+    opacity: 0.65;
+    filter: brightness(0.85);
+  }
+
+  .phone-mockup.active-slide {
+    transform: perspective(500px) rotateY(0deg) scale(1);
+    opacity: 1;
+    filter: brightness(1);
+  }
+
+  .phone-mockup.prev-slide {
+    transform: perspective(500px) rotateY(4deg) scale(0.95);
+    opacity: 0.65;
+  }
+
+  .phone-mockup.next-slide {
+    transform: perspective(500px) rotateY(-4deg) scale(0.95);
+    opacity: 0.65;
+  }
+
+  .phone-frame {
+    border: 3.5px solid #142232;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+
+  .phone-mockup.active-slide .phone-frame {
+    border-color: rgba(14, 165, 233, 0.55);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3), 0 0 10px rgba(14, 165, 233, 0.2);
+  }
+
+  .phone-screen,
+  .phone-screen img {
+    border-radius: 12px;
+  }
+
+  .phone-camera-hole {
+    left: 7px;
+    width: 5px;
+    height: 5px;
+  }
+
+  .phone-home-indicator {
+    right: 6px;
+    width: 2.5px;
+    height: 22px;
+  }
+
+  .phone-nav-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .discord-fab {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  .discord-fab svg {
+    width: 24px;
+    height: 24px;
+  }
+
   .icon-steps-grid {
     grid-template-columns: 1fr;
   }
@@ -1357,6 +1494,33 @@ button {
 }
 
 @media (max-width: 480px) {
+  .phone-mockup {
+    width: 80vw;
+    max-width: 290px;
+  }
+
+  .phone-frame {
+    border-width: 3px;
+    border-radius: 14px;
+  }
+
+  .phone-screen,
+  .phone-screen img {
+    border-radius: 10px;
+  }
+
+  .phone-camera-hole {
+    left: 5px;
+    width: 4px;
+    height: 4px;
+  }
+
+  .phone-home-indicator {
+    right: 5px;
+    width: 2px;
+    height: 18px;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
