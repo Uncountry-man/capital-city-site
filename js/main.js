@@ -117,8 +117,10 @@ function setupSectionCenterSnap() {
   let isScrolling = false;
   let scrollTimeout = null;
 
-  // Enhance smooth centering when scroll settles near section center
+  // Enhance smooth centering when scroll settles near section center (desktop only)
   window.addEventListener('scroll', () => {
+    if (window.innerWidth <= 768) return;
+
     clearTimeout(scrollTimeout);
     scrollTimeout = setTimeout(() => {
       if (isScrolling) return;

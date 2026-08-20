@@ -1513,9 +1513,26 @@ button {
   }
 }
 
-@media (max-width: 700px) {
-  .nav-menu {
-    display: none;
+@media (max-width: 768px) {
+  /* Remove Header on Mobile */
+  .site-header {
+    display: none !important;
+  }
+
+  /* Disable Section Snap on Mobile */
+  html {
+    scroll-snap-type: none !important;
+  }
+
+  .hero,
+  .section,
+  .footer {
+    scroll-snap-align: none !important;
+    scroll-snap-stop: normal !important;
+  }
+
+  .hero {
+    padding-top: clamp(2.5rem, 8vh, 4.5rem);
   }
 
   .icon-steps-grid {
@@ -1539,13 +1556,7 @@ button {
 }
 
 @media (max-width: 480px) {
-  .header-cta .btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
-  }
-
-  .header-cta .btn svg {
-    width: 16px;
-    height: 16px;
+  .footer-grid {
+    grid-template-columns: 1fr;
   }
 }
