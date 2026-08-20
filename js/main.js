@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupTypewriterAnimation();
   setupHeaderScroll();
   setupScrollReveal();
+  setupDownloadCarousel();
   setupPhoneCarousel();
   setupFaq();
   setupScrollEngine();
@@ -136,7 +137,60 @@ function setupScrollReveal() {
 }
 
 /* ==========================================================================
-   4. SMARTPHONE MOCKUP CAROUSEL (TOUCH SWIPE & BUTTONS)
+   4. DOWNLOAD CAROUSEL (BOTTOM-LEFT NAVIGATION & TOUCH/DRAG)
+   ========================================================================== */
+function scrollDownloadCarousel(direction) {
+  const track = document.getElementById('download-track');
+  if (!track) return;
+
+  const firstCard = track.querySelector('.download-card');
+  const cardWidth = firstCard ? firstCard.offsetWidth : 320;
+  const gap = 24;
+
+  track.scrollBy({
+    left: direction * (cardWidth + gap),
+    behavior: 'smooth'
+  });
+}
+
+function setupDownloadCarousel() {
+  const track = document.getElementById('download-track');
+  if (!track) return;
+
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  track.addEventListener('mousedown', (e) => {
+    isDown = true;
+    track.style.cursor = 'grabbing';
+    track.style.scrollBehavior = 'auto';
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+  }, { passive: true });
+
+  const stopDrag = () => {
+    if (!isDown) return;
+    isDown = false;
+    track.style.cursor = 'grab';
+    track.style.scrollBehavior = 'smooth';
+  };
+
+  track.addEventListener('mouseleave', stopDrag, { passive: true });
+  track.addEventListener('mouseup', stopDrag, { passive: true });
+
+  track.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 1.2;
+    track.scrollLeft = scrollLeft - walk;
+  }, { passive: true });
+}
+
+window.scrollDownloadCarousel = scrollDownloadCarousel;
+
+/* ==========================================================================
+   5. SMARTPHONE MOCKUP CAROUSEL (TOUCH SWIPE & BUTTONS)
    ========================================================================== */
 function scrollPhoneCarousel(direction) {
   const track = document.getElementById('phone-track');
