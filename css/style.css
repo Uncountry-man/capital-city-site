@@ -103,6 +103,8 @@ html {
   color-scheme: dark;
   background-color: var(--bg-main);
   font-size: 16px;
+  scroll-snap-type: y proximity;
+  overflow-x: clip;
 }
 
 body {
@@ -112,7 +114,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1,
@@ -381,6 +383,8 @@ button {
   padding-bottom: clamp(50px, 8vh, 90px);
   overflow: hidden;
   perspective: 1000px;
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;
 }
 
 .hero-bg-parallax {
@@ -932,6 +936,8 @@ button {
   padding: var(--space-section) 0;
   position: relative;
   overflow: hidden;
+  scroll-snap-align: center;
+  scroll-snap-stop: normal;
 }
 
 .section::before {
@@ -1335,6 +1341,7 @@ button {
   padding: clamp(4rem, 7vw, 7rem) 0 clamp(1.75rem, 3.5vw, 3rem);
   border-top: 1px solid rgba(56, 189, 248, 0.08);
   position: relative;
+  scroll-snap-align: end;
 }
 
 .footer-grid {

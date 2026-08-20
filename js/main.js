@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   setupTypewriterAnimation();
   setupHeaderScroll();
+  setupSectionCenterSnap();
   setupScrollReveal();
   setupPhoneCarousel();
   setupFaq();
@@ -106,6 +107,43 @@ function setupHeaderScroll() {
 
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+}
+
+/* ==========================================================================
+   2.1 SECTION CENTER SCROLL-SNAP & SMOOTH CENTER ALIGNMENT
+   ========================================================================== */
+function setupSectionCenterSnap() {
+  const sections = document.querySelectorAll('.hero, .section, .footer');
+  let isScrolling = false;
+  let scrollTimeout = null;
+
+  // Enhance smooth centering when scroll settles near section center
+  window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      if (isScrolling) return;
+
+      const viewportCenter = window.scrollY + (window.innerHeight / 2);
+
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        const sectionCenter = top + (height / 2);
+        const distance = Math.abs(viewportCenter - sectionCenter);
+
+        // If viewport center is close to section center (within 120px threshold), gently snap to center
+        if (distance > 10 && distance < 120) {
+          const targetY = top - (window.innerHeight - height) / 2;
+          isScrolling = true;
+          window.scrollTo({
+            top: Math.max(0, targetY),
+            behavior: 'smooth'
+          });
+          setTimeout(() => { isScrolling = false; }, 400);
+        }
+      });
+    }, 150);
+  }, { passive: true });
 }
 
 /* ==========================================================================
