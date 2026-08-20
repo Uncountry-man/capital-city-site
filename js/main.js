@@ -1,217 +1,114 @@
 /**
  * CAPITAL CITY ROLEPLAY - CLIENT JAVASCRIPT
- * High-Performance Scroll Engine (Parallax, 3D Perspective Reveal, Neon Progress, RAF Loop, Typewriter, FAQ & Mockup Carousel)
+ * Ultra High-Performance Engine (GPU Parallax, Lightweight Reveal, Typewriter, FAQ & Mockup Carousel)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
   setupTypewriterAnimation();
   setupHeaderScroll();
-  setupSectionCenterSnap();
   setupScrollReveal();
   setupPhoneCarousel();
   setupFaq();
   setupScrollEngine();
-  setupInteractiveCards3D();
 });
 
 /* ==========================================================================
-   1. ADVANCED SCROLL ENGINE (RAF PARALLAX & NEON PROGRESS INDICATOR)
+   1. ULTRA-FAST GPU SCROLL ENGINE (ZERO-PAINT PARALLAX)
    ========================================================================== */
 function setupScrollEngine() {
   const progressBar = document.getElementById('scroll-progress');
   const heroBg = document.getElementById('hero-bg-parallax');
   const heroContent = document.getElementById('hero-content');
-  const ambientGlow = document.getElementById('scroll-ambient-glow');
 
-  // Post-Hero Parallax Background Layers
-  const pageParallaxBg = document.getElementById('page-parallax-bg');
-  const parallaxGrid = document.getElementById('parallax-grid');
+  // Parallax Background Layers
   const parallaxCity = document.getElementById('parallax-city');
-  const parallaxBeam1 = document.getElementById('parallax-beam-1');
-  const parallaxBeam2 = document.getElementById('parallax-beam-2');
+  const parallaxGrid = document.getElementById('parallax-grid');
   const parallaxOrb1 = document.getElementById('parallax-orb-1');
   const parallaxOrb2 = document.getElementById('parallax-orb-2');
-  const parallaxOrb3 = document.getElementById('parallax-orb-3');
-  const parallaxParticles = document.getElementById('parallax-particles');
+  const parallaxBeam = document.getElementById('parallax-beam');
 
-  let latestScrollY = window.scrollY;
   let ticking = false;
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let glowX = mouseX;
-  let glowY = mouseY;
-
-  // Track mouse movement for subtle ambient backlight flare
-  window.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-  }, { passive: true });
 
   const onScroll = () => {
-    latestScrollY = window.scrollY;
-    requestTick();
-  };
-
-  const requestTick = () => {
     if (!ticking) {
-      requestAnimationFrame(updateScrollVisuals);
+      requestAnimationFrame(update);
       ticking = true;
     }
   };
 
-  const updateScrollVisuals = () => {
-    const scrollY = latestScrollY;
+  const update = () => {
+    const scrollY = window.scrollY;
     const vh = window.innerHeight;
-    const docHeight = Math.max(document.documentElement.scrollHeight - vh, 1);
-    const scrollRatio = Math.min(Math.max(scrollY / docHeight, 0), 1);
+    const docHeight = document.documentElement.scrollHeight - vh;
+    const scrollRatio = docHeight > 0 ? scrollY / docHeight : 0;
 
-    // 1. Update Neon Scroll Progress Bar
+    // 1. Neon Progress Bar (GPU Scale)
     if (progressBar) {
-      progressBar.style.width = `${scrollRatio * 100}%`;
+      progressBar.style.transform = `scaleX(${scrollRatio})`;
     }
 
-    // 2. Parallax Effects on Hero Section
-    if (scrollY < vh * 1.35) {
+    // 2. Hero Parallax (Only runs while hero is near viewport)
+    if (scrollY < vh * 1.25) {
       if (heroBg) {
-        const bgOffset = scrollY * 0.38;
-        const bgScale = 1 + scrollY * 0.00025;
-        heroBg.style.transform = `translate3d(0, ${bgOffset}px, 0) scale(${bgScale})`;
+        heroBg.style.transform = `translate3d(0, ${(scrollY * 0.32).toFixed(1)}px, 0)`;
       }
-
       if (heroContent) {
-        const contentOffset = scrollY * 0.16;
-        const opacityVal = Math.max(1 - scrollY / 650, 0);
-        heroContent.style.transform = `translate3d(0, ${contentOffset}px, 0)`;
-        heroContent.style.opacity = opacityVal.toFixed(3);
+        const opacityVal = Math.max(1 - scrollY / 600, 0);
+        heroContent.style.transform = `translate3d(0, ${(scrollY * 0.14).toFixed(1)}px, 0)`;
+        heroContent.style.opacity = opacityVal.toFixed(2);
       }
     }
 
-    // 3. Continuous Full-Page Multi-Layer Parallax (Always seamless, never clips)
-    if (pageParallaxBg) {
-      // Infinite seamless repeating cyber grid
-      if (parallaxGrid) {
-        const gridY = (scrollY * 0.22) % 60;
-        parallaxGrid.style.backgroundPosition = `0px ${gridY.toFixed(1)}px`;
-      }
-
-      // Infinite seamless floating particles
-      if (parallaxParticles) {
-        const partY = (scrollY * 0.38) % 400;
-        parallaxParticles.style.backgroundPosition = `0px ${partY.toFixed(1)}px`;
-      }
-
-      // Skyline silhouette with subtle, smooth bounded parallax shift
+    // 3. Post-Hero GPU Parallax (Pure 3D Hardware Accelerated Transforms)
+    if (scrollY > 40) {
       if (parallaxCity) {
-        const cityOffset = (scrollRatio - 0.5) * -120;
-        parallaxCity.style.transform = `translate3d(0, ${cityOffset.toFixed(1)}px, 0)`;
+        parallaxCity.style.transform = `translate3d(0, ${((scrollRatio - 0.5) * -80).toFixed(1)}px, 0)`;
       }
-
-      // Energy Orbs moving smoothly across the whole page height based on scroll ratio
+      if (parallaxGrid) {
+        parallaxGrid.style.transform = `translate3d(0, ${((scrollRatio - 0.5) * -120).toFixed(1)}px, 0)`;
+      }
       if (parallaxOrb1) {
-        const orb1Y = (scrollRatio - 0.2) * -160;
-        const orb1X = (scrollRatio - 0.5) * -70;
-        parallaxOrb1.style.transform = `translate3d(${orb1X.toFixed(1)}px, ${orb1Y.toFixed(1)}px, 0)`;
+        parallaxOrb1.style.transform = `translate3d(${((scrollRatio - 0.5) * -40).toFixed(1)}px, ${((scrollRatio - 0.3) * -100).toFixed(1)}px, 0)`;
       }
-
       if (parallaxOrb2) {
-        const orb2Y = (scrollRatio - 0.5) * 180;
-        const orb2X = (scrollRatio - 0.5) * 60;
-        parallaxOrb2.style.transform = `translate3d(${orb2X.toFixed(1)}px, ${orb2Y.toFixed(1)}px, 0)`;
+        parallaxOrb2.style.transform = `translate3d(${((scrollRatio - 0.5) * 40).toFixed(1)}px, ${((scrollRatio - 0.6) * 100).toFixed(1)}px, 0)`;
       }
-
-      if (parallaxOrb3) {
-        const orb3Y = (scrollRatio - 0.7) * -140;
-        parallaxOrb3.style.transform = `translate3d(0, ${orb3Y.toFixed(1)}px, 0)`;
+      if (parallaxBeam) {
+        parallaxBeam.style.transform = `translate3d(0, ${((scrollRatio - 0.4) * -90).toFixed(1)}px, 0) rotate(-15deg)`;
       }
-
-      // Dynamic Laser Horizon Beams
-      if (parallaxBeam1) {
-        const beam1Y = (scrollRatio - 0.3) * -120;
-        parallaxBeam1.style.transform = `translate3d(0, ${beam1Y.toFixed(1)}px, 0) rotate(-18deg)`;
-      }
-
-      if (parallaxBeam2) {
-        const beam2Y = (scrollRatio - 0.6) * 140;
-        parallaxBeam2.style.transform = `translate3d(0, ${beam2Y.toFixed(1)}px, 0) rotate(12deg)`;
-      }
-    }
-
-    // 4. Ambient Glow follow scroll & mouse with soft lerp
-    if (ambientGlow) {
-      glowX += (mouseX - glowX) * 0.08;
-      glowY += (mouseY - glowY) * 0.08;
-      ambientGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
     }
 
     ticking = false;
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  updateScrollVisuals();
+  update();
 }
 
 /* ==========================================================================
-   2. HEADER SCROLL EFFECT (BACKGROUND BLUR & ELEVATION)
+   2. HEADER SCROLL EFFECT
    ========================================================================== */
 function setupHeaderScroll() {
   const header = document.querySelector('.site-header');
   if (!header) return;
 
+  let lastState = false;
+
   const onScroll = () => {
-    if (window.scrollY > 40) {
-      header.classList.add('header-hidden');
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('header-hidden');
-      header.classList.remove('scrolled');
+    if (window.innerWidth <= 768) return;
+    const isScrolled = window.scrollY > 40;
+    if (isScrolled !== lastState) {
+      lastState = isScrolled;
+      header.classList.toggle('header-hidden', isScrolled);
+      header.classList.toggle('scrolled', isScrolled);
     }
   };
 
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
 }
 
 /* ==========================================================================
-   2.1 SECTION CENTER SCROLL-SNAP & SMOOTH CENTER ALIGNMENT
-   ========================================================================== */
-function setupSectionCenterSnap() {
-  const sections = document.querySelectorAll('.hero, .section, .footer');
-  let isScrolling = false;
-  let scrollTimeout = null;
-
-  // Enhance smooth centering when scroll settles near section center (desktop only)
-  window.addEventListener('scroll', () => {
-    if (window.innerWidth <= 768) return;
-
-    clearTimeout(scrollTimeout);
-    scrollTimeout = setTimeout(() => {
-      if (isScrolling) return;
-
-      const viewportCenter = window.scrollY + (window.innerHeight / 2);
-
-      sections.forEach(section => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-        const sectionCenter = top + (height / 2);
-        const distance = Math.abs(viewportCenter - sectionCenter);
-
-        // If viewport center is close to section center (within 120px threshold), gently snap to center
-        if (distance > 10 && distance < 120) {
-          const targetY = top - (window.innerHeight - height) / 2;
-          isScrolling = true;
-          window.scrollTo({
-            top: Math.max(0, targetY),
-            behavior: 'smooth'
-          });
-          setTimeout(() => { isScrolling = false; }, 400);
-        }
-      });
-    }, 150);
-  }, { passive: true });
-}
-
-/* ==========================================================================
-   3. 3D PERSPECTIVE SCROLL REVEAL OBSERVER
+   3. HIGH-SPEED SCROLL REVEAL OBSERVER
    ========================================================================== */
 function setupScrollReveal() {
   const revealElements = document.querySelectorAll(
@@ -231,50 +128,23 @@ function setupScrollReveal() {
       }
     });
   }, {
-    root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.08
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.05
   });
 
   revealElements.forEach(el => observer.observe(el));
 }
 
 /* ==========================================================================
-   4. 3D TILT EFFECT ON CARDS AND MOCKUPS
-   ========================================================================== */
-function setupInteractiveCards3D() {
-  const cards = document.querySelectorAll('.icon-card, .icon-step-card');
-
-  cards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-
-      const rotateX = ((y - centerY) / centerY) * -5;
-      const rotateY = ((x - centerX) / centerX) * 5;
-
-      card.style.transform = `perspective(600px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-3px)`;
-    });
-
-    card.addEventListener('mouseleave', () => {
-      card.style.transform = '';
-    });
-  });
-}
-
-/* ==========================================================================
-   5. SMARTPHONE MOCKUP CAROUSEL (TOUCH SWIPE & MOUSE ARROWS/DRAG)
+   4. SMARTPHONE MOCKUP CAROUSEL (TOUCH SWIPE & BUTTONS)
    ========================================================================== */
 function scrollPhoneCarousel(direction) {
   const track = document.getElementById('phone-track');
   if (!track) return;
 
   const firstSlide = track.querySelector('.phone-mockup');
-  const slideWidth = firstSlide ? firstSlide.offsetWidth : 500;
-  const gap = 36;
+  const slideWidth = firstSlide ? firstSlide.offsetWidth : 450;
+  const gap = 24;
 
   track.scrollBy({
     left: direction * (slideWidth + gap),
@@ -286,49 +156,40 @@ function setupPhoneCarousel() {
   const track = document.getElementById('phone-track');
   if (!track) return;
 
-  // Desktop Mouse Drag to Scroll
   let isDown = false;
-  let startX;
-  let scrollLeft;
+  let startX = 0;
+  let scrollLeft = 0;
 
   track.addEventListener('mousedown', (e) => {
     isDown = true;
     track.style.cursor = 'grabbing';
     track.style.scrollBehavior = 'auto';
-    track.style.scrollSnapType = 'none';
     startX = e.pageX - track.offsetLeft;
     scrollLeft = track.scrollLeft;
-  });
+  }, { passive: true });
 
-  track.addEventListener('mouseleave', () => {
+  const stopDrag = () => {
     if (!isDown) return;
     isDown = false;
     track.style.cursor = 'grab';
     track.style.scrollBehavior = 'smooth';
-    track.style.scrollSnapType = 'x mandatory';
-  });
+  };
 
-  track.addEventListener('mouseup', () => {
-    if (!isDown) return;
-    isDown = false;
-    track.style.cursor = 'grab';
-    track.style.scrollBehavior = 'smooth';
-    track.style.scrollSnapType = 'x mandatory';
-  });
+  track.addEventListener('mouseleave', stopDrag, { passive: true });
+  track.addEventListener('mouseup', stopDrag, { passive: true });
 
   track.addEventListener('mousemove', (e) => {
     if (!isDown) return;
-    e.preventDefault();
     const x = e.pageX - track.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const walk = (x - startX) * 1.3;
     track.scrollLeft = scrollLeft - walk;
-  });
+  }, { passive: true });
 }
 
 window.scrollPhoneCarousel = scrollPhoneCarousel;
 
 /* ==========================================================================
-   6. FAQ ACCORDION
+   5. FAQ ACCORDION
    ========================================================================== */
 function setupFaq() {
   const faqRows = document.querySelectorAll('.faq-row');
@@ -341,17 +202,13 @@ function setupFaq() {
       faqRows.forEach(r => {
         if (r !== row) r.classList.remove('open');
       });
-      if (isOpen) {
-        row.classList.remove('open');
-      } else {
-        row.classList.add('open');
-      }
+      row.classList.toggle('open', !isOpen);
     });
   });
 }
 
 /* ==========================================================================
-   7. DOWNLOAD TOAST NOTIFICATION
+   6. DOWNLOAD TOAST NOTIFICATION
    ========================================================================== */
 function triggerToast() {
   const box = document.getElementById('toast-box');
@@ -371,19 +228,20 @@ function triggerToast() {
 
   box.appendChild(toast);
 
-  setTimeout(() => toast.classList.add('show'), 15);
+  requestAnimationFrame(() => {
+    toast.classList.add('show');
+  });
 
   setTimeout(() => {
     toast.classList.remove('show');
-    setTimeout(() => toast.remove(), 400);
-  }, 3000);
+    setTimeout(() => toast.remove(), 350);
+  }, 2800);
 }
 
 window.triggerToast = triggerToast;
 
 /* ==========================================================================
-   8. HERO TITLE TYPEWRITER ANIMATION
-   Cycles periodically between: Roleplay -> SAMP -> Beta
+   7. HERO TITLE TYPEWRITER ANIMATION
    ========================================================================== */
 function setupTypewriterAnimation() {
   const target = document.getElementById('hero-typewriter');
@@ -392,7 +250,7 @@ function setupTypewriterAnimation() {
   const words = ['Roleplay', 'SAMP', 'Oficial', 'Android', 'Ios', 'Windows'];
   let wordIndex = 0;
   let charIndex = words[0].length;
-  let isDeleting = true; // start by deleting the initial pre-rendered word
+  let isDeleting = true;
 
   function tick() {
     const currentWord = words[wordIndex];
@@ -401,29 +259,26 @@ function setupTypewriterAnimation() {
     if (isDeleting) {
       charIndex--;
       target.textContent = currentWord.substring(0, charIndex);
-      nextDelay = 65; // speed up when backspacing
+      nextDelay = 60;
     } else {
       charIndex++;
       target.textContent = currentWord.substring(0, charIndex);
-      nextDelay = 120; // natural typing cadence
+      nextDelay = 110;
     }
 
     if (!isDeleting && charIndex === currentWord.length) {
-      // Completed writing the full word: hold on screen for readability
       isDeleting = true;
       nextDelay = 2200;
     } else if (isDeleting && charIndex === 0) {
-      // Completed backspacing: switch to the next word
       isDeleting = false;
       wordIndex = (wordIndex + 1) % words.length;
-      nextDelay = 380; // short breath before typing next word
+      nextDelay = 350;
     }
 
     setTimeout(tick, nextDelay);
   }
 
-  // Initial delay so user reads the default "Roleplay" first
-  setTimeout(tick, 2200);
+  setTimeout(tick, 2000);
 }
 
 window.setupTypewriterAnimation = setupTypewriterAnimation;
