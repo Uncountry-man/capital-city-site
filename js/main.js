@@ -31,6 +31,7 @@ function setupScrollEngine() {
   const parallaxBeam2 = document.getElementById('parallax-beam-2');
   const parallaxOrb1 = document.getElementById('parallax-orb-1');
   const parallaxOrb2 = document.getElementById('parallax-orb-2');
+  const parallaxOrb3 = document.getElementById('parallax-orb-3');
   const parallaxParticles = document.getElementById('parallax-particles');
 
   let latestScrollY = window.scrollY;
@@ -61,16 +62,16 @@ function setupScrollEngine() {
   const updateScrollVisuals = () => {
     const scrollY = latestScrollY;
     const vh = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight - vh;
+    const docHeight = Math.max(document.documentElement.scrollHeight - vh, 1);
+    const scrollRatio = Math.min(Math.max(scrollY / docHeight, 0), 1);
 
     // 1. Update Neon Scroll Progress Bar
-    if (progressBar && docHeight > 0) {
-      const scrollPercent = Math.min(Math.max((scrollY / docHeight) * 100, 0), 100);
-      progressBar.style.width = `${scrollPercent}%`;
+    if (progressBar) {
+      progressBar.style.width = `${scrollRatio * 100}%`;
     }
 
     // 2. Parallax Effects on Hero Section
-    if (scrollY < vh * 1.25) {
+    if (scrollY < vh * 1.35) {
       if (heroBg) {
         const bgOffset = scrollY * 0.38;
         const bgScale = 1 + scrollY * 0.00025;
@@ -85,35 +86,53 @@ function setupScrollEngine() {
       }
     }
 
-    // 3. Post-Hero Advanced Multi-Layer Parallax
+    // 3. Continuous Full-Page Multi-Layer Parallax (Always seamless, never clips)
     if (pageParallaxBg) {
-      if (scrollY > vh * 0.22) {
-        pageParallaxBg.classList.add('active');
-        const relY = scrollY - (vh * 0.25);
+      // Infinite seamless repeating cyber grid
+      if (parallaxGrid) {
+        const gridY = (scrollY * 0.22) % 60;
+        parallaxGrid.style.backgroundPosition = `0px ${gridY.toFixed(1)}px`;
+      }
 
-        if (parallaxCity) {
-          parallaxCity.style.transform = `translate3d(0, ${relY * -0.15}px, 0)`;
-        }
-        if (parallaxGrid) {
-          parallaxGrid.style.transform = `translate3d(0, ${relY * -0.26}px, 0)`;
-        }
-        if (parallaxBeam1) {
-          parallaxBeam1.style.transform = `translate3d(${relY * 0.14}px, ${relY * -0.32}px, 0) rotate(-18deg)`;
-        }
-        if (parallaxBeam2) {
-          parallaxBeam2.style.transform = `translate3d(${-relY * 0.12}px, ${relY * -0.25}px, 0) rotate(12deg)`;
-        }
-        if (parallaxOrb1) {
-          parallaxOrb1.style.transform = `translate3d(${-relY * 0.08}px, ${relY * -0.22}px, 0)`;
-        }
-        if (parallaxOrb2) {
-          parallaxOrb2.style.transform = `translate3d(${relY * 0.06}px, ${relY * -0.18}px, 0)`;
-        }
-        if (parallaxParticles) {
-          parallaxParticles.style.transform = `translate3d(0, ${relY * -0.38}px, 0)`;
-        }
-      } else {
-        pageParallaxBg.classList.remove('active');
+      // Infinite seamless floating particles
+      if (parallaxParticles) {
+        const partY = (scrollY * 0.38) % 400;
+        parallaxParticles.style.backgroundPosition = `0px ${partY.toFixed(1)}px`;
+      }
+
+      // Skyline silhouette with subtle, smooth bounded parallax shift
+      if (parallaxCity) {
+        const cityOffset = (scrollRatio - 0.5) * -120;
+        parallaxCity.style.transform = `translate3d(0, ${cityOffset.toFixed(1)}px, 0)`;
+      }
+
+      // Energy Orbs moving smoothly across the whole page height based on scroll ratio
+      if (parallaxOrb1) {
+        const orb1Y = (scrollRatio - 0.2) * -160;
+        const orb1X = (scrollRatio - 0.5) * -70;
+        parallaxOrb1.style.transform = `translate3d(${orb1X.toFixed(1)}px, ${orb1Y.toFixed(1)}px, 0)`;
+      }
+
+      if (parallaxOrb2) {
+        const orb2Y = (scrollRatio - 0.5) * 180;
+        const orb2X = (scrollRatio - 0.5) * 60;
+        parallaxOrb2.style.transform = `translate3d(${orb2X.toFixed(1)}px, ${orb2Y.toFixed(1)}px, 0)`;
+      }
+
+      if (parallaxOrb3) {
+        const orb3Y = (scrollRatio - 0.7) * -140;
+        parallaxOrb3.style.transform = `translate3d(0, ${orb3Y.toFixed(1)}px, 0)`;
+      }
+
+      // Dynamic Laser Horizon Beams
+      if (parallaxBeam1) {
+        const beam1Y = (scrollRatio - 0.3) * -120;
+        parallaxBeam1.style.transform = `translate3d(0, ${beam1Y.toFixed(1)}px, 0) rotate(-18deg)`;
+      }
+
+      if (parallaxBeam2) {
+        const beam2Y = (scrollRatio - 0.6) * 140;
+        parallaxBeam2.style.transform = `translate3d(0, ${beam2Y.toFixed(1)}px, 0) rotate(12deg)`;
       }
     }
 
