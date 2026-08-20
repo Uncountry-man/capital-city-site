@@ -68,7 +68,12 @@ body {
   overflow-x: clip;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--text-1);
   font-family: var(--font-heading);
   font-weight: 800;
@@ -497,12 +502,19 @@ button {
 }
 
 @keyframes bounceCue {
-  0%, 20%, 50%, 80%, 100% {
+
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateX(-50%) translateY(0);
   }
+
   40% {
     transform: translateX(-50%) translateY(6px);
   }
+
   60% {
     transform: translateX(-50%) translateY(3px);
   }
@@ -551,17 +563,44 @@ button {
 }
 
 @keyframes blinkCursor {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
-.text-accent { color: var(--blue); }
-.text-emerald { color: var(--emerald); }
-.text-amber { color: var(--amber); }
-.text-discord { color: var(--discord); }
-.text-whatsapp { color: var(--whatsapp); }
-.text-white { color: #ffffff; }
-.text-muted { color: var(--text-3); }
+.text-accent {
+  color: var(--blue);
+}
+
+.text-emerald {
+  color: var(--emerald);
+}
+
+.text-amber {
+  color: var(--amber);
+}
+
+.text-discord {
+  color: var(--discord);
+}
+
+.text-whatsapp {
+  color: var(--whatsapp);
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.text-muted {
+  color: var(--text-3);
+}
 
 .section-sub strong,
 .hero-title strong,
@@ -662,7 +701,7 @@ button {
   opacity: 0;
   transform: translate3d(0, 24px, 0);
   transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -678,29 +717,52 @@ button {
   transform: translate3d(0, 0, 0);
 }
 
-.reveal-stagger-3d > *,
-.reveal-stagger > * {
+.reveal-stagger-3d>*,
+.reveal-stagger>* {
   opacity: 0;
   transform: translate3d(0, 20px, 0);
   transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-.reveal-stagger-3d.active > *,
-.reveal-stagger.active > * {
+.reveal-stagger-3d.active>*,
+.reveal-stagger.active>* {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
-.reveal-stagger-3d.active > *:nth-child(1) { transition-delay: 0.04s; }
-.reveal-stagger-3d.active > *:nth-child(2) { transition-delay: 0.08s; }
-.reveal-stagger-3d.active > *:nth-child(3) { transition-delay: 0.12s; }
-.reveal-stagger-3d.active > *:nth-child(4) { transition-delay: 0.16s; }
+.reveal-stagger-3d.active>*:nth-child(1) {
+  transition-delay: 0.04s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(4) {
+  transition-delay: 0.16s;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-progress-bar { display: none !important; }
-  .reveal, .reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .reveal-3d, .reveal-scale-3d, .reveal-stagger > *, .reveal-stagger-3d > * {
+  .scroll-progress-bar {
+    display: none !important;
+  }
+
+  .reveal,
+  .reveal-up,
+  .reveal-fade,
+  .reveal-scale,
+  .reveal-left,
+  .reveal-right,
+  .reveal-3d,
+  .reveal-scale-3d,
+  .reveal-stagger>*,
+  .reveal-stagger-3d>* {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
@@ -846,6 +908,7 @@ button {
   .download-card {
     flex: 0 0 84vw;
   }
+
   .download-nav-btn {
     width: 40px;
     height: 40px;
@@ -942,8 +1005,8 @@ button {
   width: clamp(380px, 46vw, 520px);
   max-width: 80vw;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.35s ease,
-              filter 0.35s ease;
+    opacity 0.35s ease,
+    filter 0.35s ease;
   will-change: transform, opacity;
   transform: perspective(900px) rotateY(10deg) scale(0.92);
   opacity: 0.6;
@@ -1314,8 +1377,13 @@ button {
 }
 
 @keyframes toastTimer {
-  0% { width: 100%; }
-  100% { width: 0%; }
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+  }
 }
 
 /* ==========================================================================
@@ -1388,6 +1456,7 @@ button {
 }
 
 @media (max-width: 768px) {
+
   /* Remove Header on Mobile */
   .site-header {
     display: none !important;
@@ -1483,7 +1552,7 @@ button {
     text-align: left;
   }
 
-  .footer-grid > div:first-child {
+  .footer-grid>div:first-child {
     grid-column: 1 / -1;
   }
 
