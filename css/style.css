@@ -12,8 +12,8 @@
 :root {
   /* Capital City (hero-bg.jpg) Atmospheric Cyan/Slate City Palette */
   --bg-main: #060b11;
-  --bg-card: #0c1520;
-  --bg-card-hover: #121e2d;
+  --bg-card: rgba(12, 21, 32, 0.85);
+  --bg-card-hover: rgba(18, 30, 45, 0.94);
   --bg-elevated: #16273b;
 
   --blue: #0ea5e9;
@@ -88,6 +88,134 @@
   transform: translate(-50%, -50%);
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
   will-change: transform;
+}
+
+/* ==========================================================================
+   POST-HERO ADVANCED MULTI-LAYER 3D PARALLAX BACKGROUND
+   ========================================================================== */
+.page-parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity;
+}
+
+.page-parallax-bg.active {
+  opacity: 1;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: -25%;
+  left: -15%;
+  width: 130%;
+  height: 150%;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Layer 1: Ambient Cyber Matrix Grid */
+.parallax-grid {
+  background-image:
+    linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 52px 52px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.85) 0%, transparent 80%);
+  mask-image: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.85) 0%, transparent 80%);
+  opacity: 0.7;
+}
+
+/* Layer 2: Deep Atmospheric Skyline Silhouette */
+.parallax-city {
+  background-image:
+    linear-gradient(180deg, rgba(6, 11, 17, 0.96) 0%, rgba(6, 11, 17, 0.75) 45%, rgba(6, 11, 17, 0.92) 80%, #060b11 100%),
+    radial-gradient(ellipse at 50% 50%, rgba(14, 165, 233, 0.12) 0%, rgba(6, 11, 17, 0.85) 85%),
+    url('../assets/images/Screenshot_20260809_212749_Capital_Samp.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+  opacity: 0.32;
+  filter: contrast(1.2) brightness(0.8) saturate(1.3);
+}
+
+/* Layer 3 & 4: Atmospheric Laser Beams / Horizon Streaks */
+.parallax-beam {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(56, 189, 248, 0.3) 20%, rgba(240, 249, 255, 0.8) 50%, rgba(14, 165, 233, 0.4) 80%, transparent 100%);
+  filter: blur(0.5px);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.75), 0 0 40px rgba(56, 189, 248, 0.4);
+  opacity: 0.45;
+}
+
+.parallax-beam-1 {
+  width: 60%;
+  top: 28%;
+  left: 15%;
+  transform: rotate(-18deg);
+}
+
+.parallax-beam-2 {
+  width: 75%;
+  top: 68%;
+  right: -5%;
+  transform: rotate(12deg);
+}
+
+/* Layer 5 & 6: Luminous Floating Energy Orbs / Nebulae */
+.parallax-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(75px);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.parallax-orb-1 {
+  width: 650px;
+  height: 650px;
+  top: 10%;
+  right: -5%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.22) 0%, rgba(56, 189, 248, 0.08) 50%, transparent 70%);
+  animation: orbDrift1 14s infinite alternate ease-in-out;
+}
+
+.parallax-orb-2 {
+  width: 700px;
+  height: 700px;
+  top: 50%;
+  left: -10%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, rgba(14, 165, 233, 0.09) 50%, transparent 70%);
+  animation: orbDrift2 18s infinite alternate ease-in-out;
+}
+
+@keyframes orbDrift1 {
+  0% { transform: translate(0, 0) scale(0.95); }
+  100% { transform: translate(-60px, 50px) scale(1.15); }
+}
+
+@keyframes orbDrift2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(70px, -45px) scale(1.2); }
+}
+
+/* Layer 7: Micro Star & Digital Dust Particles */
+.parallax-particles {
+  background-image:
+    radial-gradient(1.5px 1.5px at 30px 45px, rgba(56, 189, 248, 0.8), rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 140px 180px, rgba(240, 249, 255, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 260px 95px, rgba(14, 165, 233, 0.9), rgba(0, 0, 0, 0)),
+    radial-gradient(1.5px 1.5px at 390px 310px, rgba(52, 211, 153, 0.7), rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 510px 220px, rgba(56, 189, 248, 0.85), rgba(0, 0, 0, 0));
+  background-size: 600px 450px;
+  opacity: 0.55;
 }
 
 *,
@@ -1001,16 +1129,18 @@ button {
 
 .icon-card {
   background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: clamp(2.25rem, 3.5vw, 3.25rem) clamp(1.4rem, 2vw, 2rem);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 1.25rem;
-  border: 1px solid rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.12);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .icon-card::after {
@@ -1219,14 +1349,16 @@ button {
 
 .icon-step-card {
   background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: clamp(1.75rem, 2.5vw, 2.4rem) clamp(1.35rem, 2vw, 1.85rem);
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  border: 1px solid rgba(56, 189, 248, 0.08);
+  border: 1px solid rgba(56, 189, 248, 0.1);
   position: relative;
   overflow: hidden;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .icon-step-card:hover {
@@ -1277,7 +1409,9 @@ button {
 
 .faq-row {
   background: var(--bg-card);
-  border: 1px solid rgba(56, 189, 248, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.1);
   overflow: hidden;
   transition: border-color 0.25s ease, background-color 0.25s ease;
 }

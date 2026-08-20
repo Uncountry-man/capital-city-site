@@ -23,6 +23,16 @@ function setupScrollEngine() {
   const heroContent = document.getElementById('hero-content');
   const ambientGlow = document.getElementById('scroll-ambient-glow');
 
+  // Post-Hero Parallax Background Layers
+  const pageParallaxBg = document.getElementById('page-parallax-bg');
+  const parallaxGrid = document.getElementById('parallax-grid');
+  const parallaxCity = document.getElementById('parallax-city');
+  const parallaxBeam1 = document.getElementById('parallax-beam-1');
+  const parallaxBeam2 = document.getElementById('parallax-beam-2');
+  const parallaxOrb1 = document.getElementById('parallax-orb-1');
+  const parallaxOrb2 = document.getElementById('parallax-orb-2');
+  const parallaxParticles = document.getElementById('parallax-particles');
+
   let latestScrollY = window.scrollY;
   let ticking = false;
   let mouseX = window.innerWidth / 2;
@@ -50,7 +60,8 @@ function setupScrollEngine() {
 
   const updateScrollVisuals = () => {
     const scrollY = latestScrollY;
-    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const vh = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight - vh;
 
     // 1. Update Neon Scroll Progress Bar
     if (progressBar && docHeight > 0) {
@@ -59,7 +70,7 @@ function setupScrollEngine() {
     }
 
     // 2. Parallax Effects on Hero Section
-    if (scrollY < window.innerHeight * 1.2) {
+    if (scrollY < vh * 1.25) {
       if (heroBg) {
         const bgOffset = scrollY * 0.38;
         const bgScale = 1 + scrollY * 0.00025;
@@ -74,7 +85,39 @@ function setupScrollEngine() {
       }
     }
 
-    // 3. Ambient Glow follow scroll & mouse with soft lerp
+    // 3. Post-Hero Advanced Multi-Layer Parallax
+    if (pageParallaxBg) {
+      if (scrollY > vh * 0.22) {
+        pageParallaxBg.classList.add('active');
+        const relY = scrollY - (vh * 0.25);
+
+        if (parallaxCity) {
+          parallaxCity.style.transform = `translate3d(0, ${relY * -0.15}px, 0)`;
+        }
+        if (parallaxGrid) {
+          parallaxGrid.style.transform = `translate3d(0, ${relY * -0.26}px, 0)`;
+        }
+        if (parallaxBeam1) {
+          parallaxBeam1.style.transform = `translate3d(${relY * 0.14}px, ${relY * -0.32}px, 0) rotate(-18deg)`;
+        }
+        if (parallaxBeam2) {
+          parallaxBeam2.style.transform = `translate3d(${-relY * 0.12}px, ${relY * -0.25}px, 0) rotate(12deg)`;
+        }
+        if (parallaxOrb1) {
+          parallaxOrb1.style.transform = `translate3d(${-relY * 0.08}px, ${relY * -0.22}px, 0)`;
+        }
+        if (parallaxOrb2) {
+          parallaxOrb2.style.transform = `translate3d(${relY * 0.06}px, ${relY * -0.18}px, 0)`;
+        }
+        if (parallaxParticles) {
+          parallaxParticles.style.transform = `translate3d(0, ${relY * -0.38}px, 0)`;
+        }
+      } else {
+        pageParallaxBg.classList.remove('active');
+      }
+    }
+
+    // 4. Ambient Glow follow scroll & mouse with soft lerp
     if (ambientGlow) {
       glowX += (mouseX - glowX) * 0.08;
       glowY += (mouseY - glowY) * 0.08;
