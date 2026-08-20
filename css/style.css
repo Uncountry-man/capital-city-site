@@ -1348,8 +1348,7 @@ button {
   }
 
   .hero-pills {
-    justify-content: center;
-    flex-wrap: wrap;
+    display: none;
   }
 
   .hero-right {
@@ -1397,16 +1396,5 @@ button {
   .header-cta .btn svg {
     width: 16px;
     height: 16px;
-  }
-  
-  .hero-pills {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-  }
-  
-  .pill-item {
-    width: 100%;
-    justify-content: center;
   }
 }
