@@ -1,6 +1,6 @@
 /**
  * CAPITAL CITY ROLEPLAY - CLIENT JAVASCRIPT
- * Typewriter Animation, Scroll Header, Advanced Scroll Reveal, Smartphone Carousel, FAQ & Download Toast.
+ * High-Performance Scroll Engine (Parallax, 3D Perspective Reveal, Neon Progress, RAF Loop, Typewriter, FAQ & Mockup Carousel)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -9,10 +9,86 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupPhoneCarousel();
   setupFaq();
+  setupScrollEngine();
+  setupInteractiveCards3D();
 });
 
 /* ==========================================================================
-   1. HEADER SCROLL EFFECT (BACKGROUND BLUR & ELEVATION)
+   1. ADVANCED SCROLL ENGINE (RAF PARALLAX & NEON PROGRESS INDICATOR)
+   ========================================================================== */
+function setupScrollEngine() {
+  const progressBar = document.getElementById('scroll-progress');
+  const heroBg = document.getElementById('hero-bg-parallax');
+  const heroContent = document.getElementById('hero-content');
+  const ambientGlow = document.getElementById('scroll-ambient-glow');
+
+  let latestScrollY = window.scrollY;
+  let ticking = false;
+  let mouseX = window.innerWidth / 2;
+  let mouseY = window.innerHeight / 2;
+  let glowX = mouseX;
+  let glowY = mouseY;
+
+  // Track mouse movement for subtle ambient backlight flare
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  }, { passive: true });
+
+  const onScroll = () => {
+    latestScrollY = window.scrollY;
+    requestTick();
+  };
+
+  const requestTick = () => {
+    if (!ticking) {
+      requestAnimationFrame(updateScrollVisuals);
+      ticking = true;
+    }
+  };
+
+  const updateScrollVisuals = () => {
+    const scrollY = latestScrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+    // 1. Update Neon Scroll Progress Bar
+    if (progressBar && docHeight > 0) {
+      const scrollPercent = Math.min(Math.max((scrollY / docHeight) * 100, 0), 100);
+      progressBar.style.width = `${scrollPercent}%`;
+    }
+
+    // 2. Parallax Effects on Hero Section
+    if (scrollY < window.innerHeight * 1.2) {
+      if (heroBg) {
+        const bgOffset = scrollY * 0.38;
+        const bgScale = 1 + scrollY * 0.00025;
+        heroBg.style.transform = `translate3d(0, ${bgOffset}px, 0) scale(${bgScale})`;
+      }
+
+      if (heroContent) {
+        const contentOffset = scrollY * 0.16;
+        const opacityVal = Math.max(1 - scrollY / 650, 0);
+        heroContent.style.transform = `translate3d(0, ${contentOffset}px, 0)`;
+        heroContent.style.opacity = opacityVal.toFixed(3);
+      }
+    }
+
+    // 3. Ambient Glow follow scroll & mouse with soft lerp
+    if (ambientGlow) {
+      glowX += (mouseX - glowX) * 0.08;
+      glowY += (mouseY - glowY) * 0.08;
+      ambientGlow.style.transform = `translate3d(${glowX}px, ${glowY}px, 0) translate(-50%, -50%)`;
+    }
+
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  updateScrollVisuals();
+}
+
+/* ==========================================================================
+   2. HEADER SCROLL EFFECT (BACKGROUND BLUR & ELEVATION)
    ========================================================================== */
 function setupHeaderScroll() {
   const header = document.querySelector('.site-header');
@@ -31,11 +107,11 @@ function setupHeaderScroll() {
 }
 
 /* ==========================================================================
-   2. SMOOTH SCROLL REVEAL & FADING OBSERVER
+   3. 3D PERSPECTIVE SCROLL REVEAL OBSERVER
    ========================================================================== */
 function setupScrollReveal() {
   const revealElements = document.querySelectorAll(
-    '.reveal, .reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .reveal-stagger'
+    '.reveal, .reveal-up, .reveal-fade, .reveal-scale, .reveal-left, .reveal-right, .reveal-stagger, .reveal-3d, .reveal-scale-3d, .reveal-stagger-3d'
   );
 
   if (!('IntersectionObserver' in window)) {
@@ -53,14 +129,40 @@ function setupScrollReveal() {
   }, {
     root: null,
     rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
+    threshold: 0.08
   });
 
   revealElements.forEach(el => observer.observe(el));
 }
 
 /* ==========================================================================
-   2. SMARTPHONE MOCKUP CAROUSEL (TOUCH SWIPE & MOUSE ARROWS/DRAG)
+   4. 3D TILT EFFECT ON CARDS AND MOCKUPS
+   ========================================================================== */
+function setupInteractiveCards3D() {
+  const cards = document.querySelectorAll('.icon-card, .icon-step-card');
+
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const rotateX = ((y - centerY) / centerY) * -5;
+      const rotateY = ((x - centerX) / centerX) * 5;
+
+      card.style.transform = `perspective(600px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-3px)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+}
+
+/* ==========================================================================
+   5. SMARTPHONE MOCKUP CAROUSEL (TOUCH SWIPE & MOUSE ARROWS/DRAG)
    ========================================================================== */
 function scrollPhoneCarousel(direction) {
   const track = document.getElementById('phone-track');
@@ -122,7 +224,7 @@ function setupPhoneCarousel() {
 window.scrollPhoneCarousel = scrollPhoneCarousel;
 
 /* ==========================================================================
-   3. FAQ ACCORDION
+   6. FAQ ACCORDION
    ========================================================================== */
 function setupFaq() {
   const faqRows = document.querySelectorAll('.faq-row');
@@ -145,7 +247,7 @@ function setupFaq() {
 }
 
 /* ==========================================================================
-   4. DOWNLOAD TOAST NOTIFICATION
+   7. DOWNLOAD TOAST NOTIFICATION
    ========================================================================== */
 function triggerToast() {
   const box = document.getElementById('toast-box');
@@ -159,7 +261,7 @@ function triggerToast() {
       <polyline points="7 10 12 15 17 10"></polyline>
       <line x1="12" y1="15" x2="12" y2="3"></line>
     </svg>
-    <span>Iniciando download do <strong>APK Beta v1.9.7</strong>...</span>
+    <span>Iniciando download do <strong>APK Capital City</strong>...</span>
     <div class="toast-progress"></div>
   `;
 
@@ -176,7 +278,7 @@ function triggerToast() {
 window.triggerToast = triggerToast;
 
 /* ==========================================================================
-   5. HERO TITLE TYPEWRITER ANIMATION
+   8. HERO TITLE TYPEWRITER ANIMATION
    Cycles periodically between: Roleplay -> SAMP -> Beta
    ========================================================================== */
 function setupTypewriterAnimation() {
@@ -221,4 +323,3 @@ function setupTypewriterAnimation() {
 }
 
 window.setupTypewriterAnimation = setupTypewriterAnimation;
-

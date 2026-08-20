@@ -45,6 +45,45 @@
   --space-container-px: clamp(1.25rem, 4vw, 2.5rem);
 }
 
+/* ==========================================================================
+   TOP SCROLL PROGRESS INDICATOR (NEON CYBER BEAM)
+   ========================================================================== */
+.scroll-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(6, 11, 17, 0.45);
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.scroll-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #0284c7, #0ea5e9, #38bdf8, #f0f9ff);
+  box-shadow: 0 0 12px rgba(14, 165, 233, 0.9), 0 0 24px rgba(56, 189, 248, 0.6);
+  transition: width 0.05s linear;
+  will-change: width;
+}
+
+/* Ambient Glow Cursor / Scroll Flare */
+.scroll-ambient-glow {
+  position: fixed;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.07) 0%, rgba(6, 11, 17, 0) 70%);
+  pointer-events: none;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+  will-change: transform;
+}
+
 *,
 *::before,
 *::after {
@@ -315,7 +354,7 @@ button {
 }
 
 /* ==========================================================================
-   HERO SECTION (FULLSCREEN VIEWPORT 100VH + AMBIENT AURA)
+   HERO SECTION (FULLSCREEN VIEWPORT 100VH + AMBIENT AURA & PARALLAX)
    ========================================================================== */
 .hero {
   position: relative;
@@ -327,13 +366,25 @@ button {
   align-items: center;
   padding-top: clamp(80px, 12vh, 120px);
   padding-bottom: clamp(50px, 8vh, 90px);
+  overflow: hidden;
+  perspective: 1000px;
+}
+
+.hero-bg-parallax {
+  position: absolute;
+  top: -12%;
+  left: 0;
+  width: 100%;
+  height: 124%;
   background-image:
     linear-gradient(180deg, rgba(6, 11, 17, 0.4) 0%, rgba(6, 11, 17, 0.82) 75%, #060b11 100%),
     url('../assets/images/hero-bg.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  overflow: hidden;
+  z-index: 0;
+  will-change: transform;
+  pointer-events: none;
 }
 
 .hero::before {
@@ -673,8 +724,77 @@ button {
 }
 
 /* ==========================================================================
-   SCROLL TRANSITIONS & ADVANCED REVEAL ANIMATIONS
+   SCROLL TRANSITIONS & ADVANCED 3D REVEAL ANIMATIONS
    ========================================================================== */
+/* Section Laser Beam Line */
+.section-beam {
+  width: 42px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan-bright));
+  margin-bottom: 1.2rem;
+  border-radius: 3px;
+  box-shadow: 0 0 14px rgba(14, 165, 233, 0.9);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
+}
+
+.reveal-3d.active .section-beam,
+.section-head.active .section-beam {
+  transform: scaleX(1);
+}
+
+/* 3D Perspective Reveal */
+.reveal-3d {
+  opacity: 0;
+  transform: perspective(1000px) rotateX(15deg) translateY(36px) scale(0.96);
+  transform-origin: center bottom;
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-3d.active {
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0deg) translateY(0) scale(1);
+}
+
+/* Scale 3D for Phone Mockups Wrapper */
+.reveal-scale-3d {
+  opacity: 0;
+  transform: perspective(1200px) rotateY(-4deg) translateY(30px) scale(0.93);
+  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-scale-3d.active {
+  opacity: 1;
+  transform: perspective(1200px) rotateY(0) translateY(0) scale(1);
+}
+
+/* 3D Staggered Cascade */
+.reveal-stagger-3d > * {
+  opacity: 0;
+  transform: perspective(900px) rotateX(12deg) translateY(32px) scale(0.96);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-stagger-3d.active > * {
+  opacity: 1;
+  transform: perspective(900px) rotateX(0deg) translateY(0) scale(1);
+}
+
+.reveal-stagger-3d.active > *:nth-child(1) { transition-delay: 0.05s; }
+.reveal-stagger-3d.active > *:nth-child(2) { transition-delay: 0.14s; }
+.reveal-stagger-3d.active > *:nth-child(3) { transition-delay: 0.23s; }
+.reveal-stagger-3d.active > *:nth-child(4) { transition-delay: 0.32s; }
+.reveal-stagger-3d.active > *:nth-child(5) { transition-delay: 0.41s; }
+.reveal-stagger-3d.active > *:nth-child(6) { transition-delay: 0.50s; }
+
+/* Base Reveals (Legacy & Fallbacks) */
 .reveal,
 .reveal-up {
   opacity: 0;
@@ -772,6 +892,9 @@ button {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .scroll-progress-bar {
+    display: none !important;
+  }
 
   .reveal,
   .reveal-up,
@@ -779,7 +902,10 @@ button {
   .reveal-scale,
   .reveal-left,
   .reveal-right,
-  .reveal-stagger>* {
+  .reveal-3d,
+  .reveal-scale-3d,
+  .reveal-stagger>*,
+  .reveal-stagger-3d>* {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
