@@ -95,9 +95,11 @@ function setupHeaderScroll() {
   if (!header) return;
 
   const onScroll = () => {
-    if (window.scrollY > 30) {
+    if (window.scrollY > 40) {
+      header.classList.add('header-hidden');
       header.classList.add('scrolled');
     } else {
+      header.classList.remove('header-hidden');
       header.classList.remove('scrolled');
     }
   };
@@ -285,7 +287,7 @@ function setupTypewriterAnimation() {
   const target = document.getElementById('hero-typewriter');
   if (!target) return;
 
-  const words = ['Roleplay', 'SAMP', 'Beta', 'APK próprio'];
+  const words = ['Roleplay', 'SAMP', 'Oficial', 'Android', 'Ios', 'Windows'];
   let wordIndex = 0;
   let charIndex = words[0].length;
   let isDeleting = true; // start by deleting the initial pre-rendered word

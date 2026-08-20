@@ -16,9 +16,12 @@
   --bg-card-hover: #121e2d;
   --bg-elevated: #16273b;
 
-  --blue: #0ea5e9;           /* Electric Sky Cyan (matches road reflection & loader) */
-  --blue-hover: #0284c7;     /* Deep Oceanic Azure */
-  --cyan-bright: #38bdf8;    /* Luminous Skyline Cyan */
+  --blue: #0ea5e9;
+  /* Electric Sky Cyan (matches road reflection & loader) */
+  --blue-hover: #0284c7;
+  /* Deep Oceanic Azure */
+  --cyan-bright: #38bdf8;
+  /* Luminous Skyline Cyan */
   --emerald: #10b981;
   --amber: #f59e0b;
   --discord: #5865F2;
@@ -26,9 +29,12 @@
   --whatsapp: #25D366;
   --whatsapp-hover: #1ebc57;
 
-  --text-1: #f0f9ff;         /* Ice white headline */
-  --text-2: #8cb2d3;         /* Skyline slate blue */
-  --text-3: #537593;         /* Atmospheric dusk fog */
+  --text-1: #f0f9ff;
+  /* Ice white headline */
+  --text-2: #8cb2d3;
+  /* Skyline slate blue */
+  --text-3: #537593;
+  /* Atmospheric dusk fog */
 
   /* Material 3 Expressive Typography Tokens */
   --font-brand: 'Pricedown', 'Outfit', sans-serif;
@@ -158,7 +164,14 @@ button {
   z-index: 100;
   display: flex;
   align-items: center;
-  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, height 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.site-header.header-hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .site-header.scrolled {
@@ -726,23 +739,6 @@ button {
 /* ==========================================================================
    SCROLL TRANSITIONS & ADVANCED 3D REVEAL ANIMATIONS
    ========================================================================== */
-/* Section Laser Beam Line */
-.section-beam {
-  width: 42px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--blue), var(--cyan-bright));
-  margin-bottom: 1.2rem;
-  border-radius: 3px;
-  box-shadow: 0 0 14px rgba(14, 165, 233, 0.9);
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.15s;
-}
-
-.reveal-3d.active .section-beam,
-.section-head.active .section-beam {
-  transform: scaleX(1);
-}
 
 /* 3D Perspective Reveal */
 .reveal-3d {
@@ -750,7 +746,7 @@ button {
   transform: perspective(1000px) rotateX(15deg) translateY(36px) scale(0.96);
   transform-origin: center bottom;
   transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -764,7 +760,7 @@ button {
   opacity: 0;
   transform: perspective(1200px) rotateY(-4deg) translateY(30px) scale(0.93);
   transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -774,25 +770,42 @@ button {
 }
 
 /* 3D Staggered Cascade */
-.reveal-stagger-3d > * {
+.reveal-stagger-3d>* {
   opacity: 0;
   transform: perspective(900px) rotateX(12deg) translateY(32px) scale(0.96);
   transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
-.reveal-stagger-3d.active > * {
+.reveal-stagger-3d.active>* {
   opacity: 1;
   transform: perspective(900px) rotateX(0deg) translateY(0) scale(1);
 }
 
-.reveal-stagger-3d.active > *:nth-child(1) { transition-delay: 0.05s; }
-.reveal-stagger-3d.active > *:nth-child(2) { transition-delay: 0.14s; }
-.reveal-stagger-3d.active > *:nth-child(3) { transition-delay: 0.23s; }
-.reveal-stagger-3d.active > *:nth-child(4) { transition-delay: 0.32s; }
-.reveal-stagger-3d.active > *:nth-child(5) { transition-delay: 0.41s; }
-.reveal-stagger-3d.active > *:nth-child(6) { transition-delay: 0.50s; }
+.reveal-stagger-3d.active>*:nth-child(1) {
+  transition-delay: 0.05s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(2) {
+  transition-delay: 0.14s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(3) {
+  transition-delay: 0.23s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(4) {
+  transition-delay: 0.32s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(5) {
+  transition-delay: 0.41s;
+}
+
+.reveal-stagger-3d.active>*:nth-child(6) {
+  transition-delay: 0.50s;
+}
 
 /* Base Reveals (Legacy & Fallbacks) */
 .reveal,
@@ -1503,7 +1516,7 @@ button {
     text-align: left;
   }
 
-  .footer-grid > div:first-child {
+  .footer-grid>div:first-child {
     grid-column: 1 / -1;
   }
 
@@ -1518,7 +1531,7 @@ button {
     padding: 0.5rem 1rem;
     font-size: 0.85rem;
   }
-  
+
   .header-cta .btn svg {
     width: 16px;
     height: 16px;
