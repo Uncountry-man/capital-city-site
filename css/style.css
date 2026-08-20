@@ -947,6 +947,11 @@ button {
   pointer-events: none;
 }
 
+#download::before {
+  display: none;
+  content: none;
+}
+
 @keyframes beamGlow {
   0% {
     background-position: 100% 0;
