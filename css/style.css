@@ -1299,32 +1299,9 @@ button {
   }
 }
 
-/* Responsive */
-@media (max-width: 850px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-
-  .hero-left {
-    text-align: center;
-    align-items: center;
-  }
-
-  .hero-pills {
-    justify-content: center;
-  }
-
-  .hero-right {
-    justify-content: center;
-  }
-
-  .hero-right .btn {
-    width: 100%;
-  }
-}
-
+/* ==========================================================================
+   RESPONSIVE DESIGN (MOBILE FIRST & TABLET ADJUSTMENTS)
+   ========================================================================== */
 @media (max-width: 900px) {
   .icon-download-grid {
     grid-template-columns: 1fr;
@@ -1339,13 +1316,14 @@ button {
   }
 
   .phone-frame {
-    border-width: 7px;
-    border-radius: 24px;
+    border-width: 6px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
   }
 
   .phone-screen,
   .phone-screen img {
-    border-radius: 17px;
+    border-radius: 14px;
   }
 
   .icon-steps-grid {
@@ -1354,6 +1332,34 @@ button {
 
   .footer-grid {
     grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-left {
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-pills {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-right {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .hero-right .btn {
+    width: 100%;
+    max-width: 400px;
   }
 }
 
@@ -1368,5 +1374,39 @@ button {
 
   .footer-grid {
     grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-text {
+    display: none;
+  }
+  
+  .header-cta .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .header-cta .btn svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .hero-pills {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .pill-item {
+    width: 100%;
+    justify-content: center;
   }
 }
