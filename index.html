@@ -6,6 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+  <!-- Browser UI, Search/Address Bar Theme & Dark Mode (Firefox, Chrome, Safari, Edge) -->
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#070c12">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#070c12">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#070c12">
+  <meta name="msapplication-navbutton-color" content="#070c12">
+  <meta name="msapplication-TileColor" content="#070c12">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Capital City">
+  <link rel="manifest" href="site.webmanifest">
+
   <!-- Primary SEO Meta Tags -->
   <title>Capital City Roleplay — Servidor SAMP Mobile com APK Próprio (Beta)</title>
   <meta name="title" content="Capital City Roleplay — Servidor SAMP Mobile com APK Próprio (Beta)">
@@ -16,13 +28,6 @@
   <meta name="author" content="Capital City Roleplay">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://uncountry-man.github.io/capital-city-site/">
-
-  <!-- Theme & Mobile App Configuration -->
-  <meta name="theme-color" content="#060b11">
-  <meta name="msapplication-TileColor" content="#060b11">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Capital City">
 
   <!-- Favicon & Touch Icons -->
   <link rel="icon" type="image/jpeg" href="assets/images/logo.jpg">
@@ -72,7 +77,7 @@
         "name": "Capital City Roleplay APK",
         "operatingSystem": "Android",
         "applicationCategory": "GameApplication",
-        "softwareVersion": "1.9.7 Beta",
+        "softwareVersion": "oficial v17.3.100",
         "offers": {
           "@type": "Offer",
           "price": "0",
@@ -140,8 +145,9 @@
       </nav>
 
       <div class="header-cta">
-        <a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk" target="_blank"
-          rel="noopener noreferrer" class="btn btn-primary btn-sm" onclick="triggerToast()">
+        <a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk"
+          download="app-universal-release.apk" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"
+          onclick="triggerToast()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -166,46 +172,12 @@
               class="hero-typewriter-text">Roleplay</span><span class="typewriter-cursor"
               aria-hidden="true"></span></span>
         </h1>
-
-        <div class="hero-pills">
-          <div class="pill-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.996-3.4572c.1145-.1982.0467-.4518-.1515-.5662-.1982-.1144-.4517-.0466-.5661.1515l-2.0227 3.5034C15.5902 8.4116 13.8533 8.0838 12 8.0838s-3.5902.3278-5.1372.8711L4.8401 5.4515c-.1144-.1981-.3679-.2659-.5661-.1515-.1982.1144-.266.368-.1515.5662l1.996 3.4572C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396" />
-            </svg>
-            <span><strong>APK</strong> Próprio</span>
-          </div>
-
-          <div class="pill-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            <span><strong>Anti-Cheat</strong> Ativo</span>
-          </div>
-
-          <div class="pill-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-              <line x1="12" y1="19" x2="12" y2="23"></line>
-              <line x1="8" y1="23" x2="16" y2="23"></line>
-            </svg>
-            <span><strong>Voz 3D</strong> Proximidade</span>
-          </div>
-
-          <div class="pill-item">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <circle cx="12" cy="12" r="10"></circle>
-              <polyline points="12 6 12 12 16 14"></polyline>
-            </svg>
-            <span><strong>Ping baixo</strong> Brasil</span>
-          </div>
-        </div>
       </div>
 
       <div class="hero-right">
-        <a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk" target="_blank"
-          rel="noopener noreferrer" class="btn btn-primary btn-lg" onclick="triggerToast()">
+        <a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk"
+          download="app-universal-release.apk" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg"
+          onclick="triggerToast()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -249,9 +221,8 @@
             </div>
             <div>
               <h3 class="icon-card-title">Android <span class="text-accent">APK</span></h3>
-              <span class="icon-card-meta">Versão <strong>v1.9.7 Beta</strong></span>
-              <p class="icon-card-desc">APK completo e independente para celular. Não necessita de cadastro prévio no
-                site.</p>
+              <span class="icon-card-meta">Versão <strong>oficial v17.3.100</strong></span>
+              <p class="icon-card-desc">APK completo e independente para celular. Registro rápido e login direto com a conta Google.</p>
               <ul class="icon-card-features">
                 <li>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -273,8 +244,9 @@
                 </li>
               </ul>
             </div>
-            <a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk" target="_blank"
-              rel="noopener noreferrer" class="btn btn-primary btn-sm" onclick="triggerToast()">
+            <a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk"
+              download="app-universal-release.apk" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"
+              onclick="triggerToast()">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                 <polyline points="7 10 12 15 17 10"></polyline>
@@ -282,6 +254,42 @@
               </svg>
               <span>Download APK</span>
             </a>
+          </div>
+
+          <!-- iOS Card -->
+          <div class="download-card icon-card card-soon">
+            <div class="icon-card-sym">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.02c.65-.8 1.09-1.92.97-3.02-.94.04-2.07.63-2.73 1.41-.58.67-1.09 1.76-.95 2.84 1.05.08 2.06-.51 2.71-1.23z" />
+              </svg>
+            </div>
+            <div>
+              <h3 class="icon-card-title">Apple <span class="text-muted">iOS</span></h3>
+              <span class="icon-card-meta">Acesso <strong>TestFlight</strong></span>
+              <p class="icon-card-desc">Versão nativa otimizada para ecossistema Apple (iPhone e iPad).</p>
+              <ul class="icon-card-features">
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Compatível com iOS 14+</span>
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Otimização para iPhone & iPad</span>
+                </li>
+                <li>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Instalação por Convite</span>
+                </li>
+              </ul>
+            </div>
+            <span class="badge-status soon">Em breve</span>
           </div>
 
           <!-- Windows Card -->
@@ -320,42 +328,6 @@
             </div>
             <span class="badge-status soon">Em breve</span>
           </div>
-
-          <!-- iOS Card -->
-          <div class="download-card icon-card card-soon">
-            <div class="icon-card-sym">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
-                <path
-                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.02c.65-.8 1.09-1.92.97-3.02-.94.04-2.07.63-2.73 1.41-.58.67-1.09 1.76-.95 2.84 1.05.08 2.06-.51 2.71-1.23z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="icon-card-title">Apple <span class="text-muted">iOS</span></h3>
-              <span class="icon-card-meta">Acesso <strong>TestFlight</strong></span>
-              <p class="icon-card-desc">Versão nativa otimizada para ecossistema Apple (iPhone e iPad).</p>
-              <ul class="icon-card-features">
-                <li>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Compatível com iOS 14+</span>
-                </li>
-                <li>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Otimização para iPhone & iPad</span>
-                </li>
-                <li>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                  <span>Instalação por Convite</span>
-                </li>
-              </ul>
-            </div>
-            <span class="badge-status soon">Em breve</span>
-          </div>
         </div>
 
         <!-- Navigation in Bottom-Left -->
@@ -389,77 +361,53 @@
 
       <div class="phone-carousel-wrapper reveal-3d">
         <div class="phone-carousel-track" id="phone-track">
-          <!-- Smartphone 1: Real Mobile HUD Screenshot -->
+          <!-- Smartphone 1: Gameplay Mobile HUD -->
           <div class="phone-mockup active-slide" data-index="0">
             <div class="phone-frame">
               <div class="phone-camera-hole"></div>
               <div class="phone-screen">
-                <img src="assets/images/hero-bg.jpg" alt="Interface e HUD do Capital City SAMP Mobile para Android"
-                  loading="lazy" width="800" height="450">
+                <img src="assets/images/Screenshot_20260902-184241.Capital_City.png"
+                  alt="Gameplay e interface do Capital City Roleplay SAMP Mobile no Android" loading="lazy" decoding="async"
+                  width="800" height="450">
               </div>
               <div class="phone-home-indicator"></div>
             </div>
           </div>
 
-          <!-- Smartphone 2: Polícia Militar & Viaturas -->
+          <!-- Smartphone 2: Veículos & HUD -->
           <div class="phone-mockup next-slide" data-index="1">
             <div class="phone-frame">
               <div class="phone-camera-hole"></div>
               <div class="phone-screen">
-                <img src="assets/images/Screenshot_20260808-074037_Capital_Samp.png"
-                  alt="Viaturas e Polícia Militar no servidor Capital City Roleplay" loading="lazy" width="800"
+                <img src="assets/images/Screenshot_20260902_084724_Capital_City.jpg"
+                  alt="Veículos e HUD detalhado no servidor Capital City" loading="lazy" decoding="async" width="800"
                   height="450">
               </div>
               <div class="phone-home-indicator"></div>
             </div>
           </div>
 
-          <!-- Smartphone 3: Gameplay Mobile -->
+          <!-- Smartphone 3: Gameplay em Ação -->
           <div class="phone-mockup" data-index="2">
             <div class="phone-frame">
               <div class="phone-camera-hole"></div>
               <div class="phone-screen">
-                <img src="assets/images/Screenshot_20260606_152542_Capital_Samp.jpg"
-                  alt="Gameplay e sistema de veículos no celular Capital City SAMP" loading="lazy" width="800"
+                <img src="assets/images/IMG-20260903-WA0112.jpg"
+                  alt="Jogabilidade mobile imersiva Capital City Roleplay" loading="lazy" decoding="async" width="800"
                   height="450">
               </div>
               <div class="phone-home-indicator"></div>
             </div>
           </div>
 
-          <!-- Smartphone 4: Tuning & Som Automotivo -->
+          <!-- Smartphone 4: Interações da Cidade -->
           <div class="phone-mockup" data-index="3">
             <div class="phone-frame">
               <div class="phone-camera-hole"></div>
               <div class="phone-screen">
-                <img src="assets/images/Screenshot_20260812_132616_Capital_Samp.jpg"
-                  alt="Oficinas mecânicas, personalização e som automotivo no SAMP Android" loading="lazy" width="800"
-                  height="450">
-              </div>
-              <div class="phone-home-indicator"></div>
-            </div>
-          </div>
-
-          <!-- Smartphone 5: Cidade e Skyline -->
-          <div class="phone-mockup" data-index="4">
-            <div class="phone-frame">
-              <div class="phone-camera-hole"></div>
-              <div class="phone-screen">
-                <img src="assets/images/Screenshot_20260809_212749_Capital_Samp.jpg"
-                  alt="Skyline e cidade aberta no GTA SAMP Mobile Capital City" loading="lazy" width="800" height="450">
-              </div>
-              <div class="phone-home-indicator"></div>
-            </div>
-          </div>
-
-          <!-- Smartphone 6: Gameplay Screenshot -->
-          <div class="phone-mockup" data-index="5">
-            <div class="phone-frame">
-              <div class="phone-camera-hole"></div>
-              <div class="phone-screen">
-                <img src="assets/images/IMG-20260807-WA0041-1.jpg"
-                  alt="Captura de tela da jogabilidade no servidor Capital City Roleplay" loading="lazy" width="800"
-                  height="450">
+                <img src="assets/images/IMG-20260911-WA0110.jpg"
+                  alt="Exploração da cidade e roleplay online no GTA SAMP Mobile" loading="lazy" decoding="async"
+                  width="800" height="450">
               </div>
               <div class="phone-home-indicator"></div>
             </div>
@@ -481,7 +429,7 @@
             </svg>
           </button>
           <div class="phone-carousel-counter">
-            <span id="phone-current-idx">01</span> / <span id="phone-total-idx">06</span>
+            <span id="phone-current-idx">01</span> / <span id="phone-total-idx">04</span>
           </div>
         </div>
       </div>
@@ -509,7 +457,7 @@
           </div>
           <div>
             <h4 class="step-title"><strong>1.</strong> Baixar APK</h4>
-            <span class="step-tag">Arquivo <strong>capital-city-universal.apk</strong></span>
+            <span class="step-tag">Arquivo <strong>app-universal-release.apk</strong></span>
           </div>
         </div>
 
@@ -544,8 +492,8 @@
             </svg>
           </div>
           <div>
-            <h4 class="step-title"><strong>4.</strong> Definir Nick</h4>
-            <span class="step-tag">Formato <strong>Nome_Sobrenome</strong></span>
+            <h4 class="step-title"><strong>4.</strong> Login com Google</h4>
+            <span class="step-tag">Registro <strong>com Conta Google</strong></span>
           </div>
         </div>
       </div>
@@ -579,21 +527,33 @@
 
         <div class="faq-row">
           <button class="faq-q">
-            <span>Preciso de <strong>cadastro prévio</strong> no site?</span>
+            <span>Preciso de <strong>cadastro prévio</strong> ou formato Nome_Sobrenome?</span>
             <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-a">
-            <p><strong class="text-accent">Não.</strong> Basta abrir o aplicativo e <strong>escolher seu Nick</strong>
-              direto na tela de login.</p>
+            <p><strong class="text-accent">Não precisa de Nome_Sobrenome!</strong> Basta abrir o jogo e entrar diretamente com a sua <strong>Conta Google</strong>. O registro no jogo com a conta Google é obrigatório, mas é simples, instantâneo e seguro direto no app, sem formulários manuais no site ou regras rígidas de nome.</p>
           </div>
         </div>
 
         <div class="faq-row">
           <button class="faq-q">
-            <span>Quando saem as versões <strong>PC e iOS</strong>?</span>
+            <span>Onde posso <strong>tirar dúvidas</strong>?</span>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="faq-a">
+            <p>Basta entrar no nosso <a href="https://discord.gg/capitalcityrp" target="_blank" rel="noopener noreferrer" class="text-discord"><strong>Discord oficial</strong></a> e acessar o canal de <strong>abrir ticket</strong>. Nossa equipe de suporte está sempre pronta para ajudar você!</p>
+          </div>
+        </div>
+
+        <div class="faq-row">
+          <button class="faq-q">
+            <span>Quando saem as versões <strong>iOS e PC</strong>?</span>
             <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2.5">
               <polyline points="6 9 12 15 18 9"></polyline>
@@ -653,11 +613,72 @@
         <div>
           <h5>Download</h5>
           <ul class="footer-links">
-            <li><a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk" target="_blank"
-                rel="noopener noreferrer" onclick="triggerToast()">Android (v1.9.7)</a></li>
-            <li><a href="#download">Windows (Em Breve)</a></li>
+            <li><a href="https://pub-38ff6d5aed8147dc86c59338cc9e50b6.r2.dev/capital-character-candidate-signed.apk"
+                download="app-universal-release.apk" target="_blank" rel="noopener noreferrer" onclick="triggerToast()">Android (oficial v17.3.100)</a></li>
             <li><a href="#download">iOS (Em Breve)</a></li>
+            <li><a href="#download">Windows (Em Breve)</a></li>
           </ul>
+        </div>
+      </div>
+
+      <!-- Selos e Avisos Oficiais Estilo Rockstar Games (Preto e Branco Simples) -->
+      <div class="rockstar-badges-row">
+        <!-- Retângulo 1: Classificação Mature 17+ -->
+        <div class="rockstar-badge-card" aria-label="Classificação Mature 17+">
+          <div class="rockstar-badge-main">
+            <div class="rockstar-badge-symbol">
+              <span class="rockstar-symbol-hero">M</span>
+              <span class="rockstar-symbol-sub">MATURE 17+</span>
+            </div>
+            <div class="rockstar-badge-desc">
+              <span>Violência Intensa</span>
+              <span>Linguagem Imprópria</span>
+              <span>Interação Online</span>
+            </div>
+          </div>
+          <div class="rockstar-badge-bar">
+            <span>ESRB CONTENT RATING</span>
+          </div>
+        </div>
+
+        <!-- Retângulo 2: Compras In-Game -->
+        <div class="rockstar-badge-card" aria-label="Compras In-Game">
+          <div class="rockstar-badge-main">
+            <div class="rockstar-badge-symbol">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+              </svg>
+              <span class="rockstar-symbol-sub">IN-GAME</span>
+            </div>
+            <div class="rockstar-badge-desc">
+              <span>Compras no Jogo</span>
+              <span>Itens VIP & Veículos</span>
+              <span>Transações Opcionais</span>
+            </div>
+          </div>
+          <div class="rockstar-badge-bar">
+            <span>IN-GAME PURCHASES</span>
+          </div>
+        </div>
+
+        <!-- Retângulo 3: Direitos Reservados -->
+        <div class="rockstar-badge-card" aria-label="Direitos Reservados">
+          <div class="rockstar-badge-main">
+            <div class="rockstar-badge-symbol">
+              <span class="rockstar-symbol-hero">©</span>
+              <span class="rockstar-symbol-sub">2026 CCR</span>
+            </div>
+            <div class="rockstar-badge-desc">
+              <span>Capital City Roleplay</span>
+              <span>Todos os Direitos Reservados</span>
+              <span>Comunidade SAMP Mobile</span>
+            </div>
+          </div>
+          <div class="rockstar-badge-bar">
+            <span>ALL RIGHTS RESERVED</span>
+          </div>
         </div>
       </div>
 

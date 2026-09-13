@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupPhoneCarousel();
   setupFaq();
   setupScrollEngine();
+  setupImageLazyLoading();
 });
 
 /* ==========================================================================
@@ -428,3 +429,27 @@ function setupTypewriterAnimation() {
 }
 
 window.setupTypewriterAnimation = setupTypewriterAnimation;
+
+/* ==========================================================================
+   8. IMAGE LAZY LOADING SHIMMER REMOVAL & FADE-IN
+   ========================================================================== */
+function setupImageLazyLoading() {
+  const images = document.querySelectorAll('img');
+  images.forEach(img => {
+    const handleLoad = () => {
+      img.classList.add('is-loaded');
+      const phoneScreen = img.closest('.phone-screen');
+      if (phoneScreen) {
+        phoneScreen.classList.add('loaded');
+      }
+    };
+
+    if (img.complete && img.naturalWidth !== 0) {
+      handleLoad();
+    } else {
+      img.addEventListener('load', handleLoad, { once: true });
+      img.addEventListener('error', handleLoad, { once: true });
+    }
+  });
+}
+

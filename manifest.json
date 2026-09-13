@@ -1,0 +1,19 @@
+{
+  "name": "Capital City Roleplay",
+  "short_name": "Capital City",
+  "description": "Servidor SAMP Mobile com APK Próprio",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#070c12",
+  "theme_color": "#070c12",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/images/logo.jpg",
+      "sizes": "192x192 512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ]
+}
