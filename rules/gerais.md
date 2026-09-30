@@ -1,0 +1,88 @@
+# 🏛️ Regras Gerais e Diretrizes do Capital City
+
+> [!NOTE]
+> Este documento define a conduta básica esperada de todos os cidadãos, os princípios essenciais de atuação (RP) e os limites fundamentais de convivência na cidade.
+
+---
+
+## 1. Princípios Básicos de Interpretação
+
+### 1.1. Interpretação Realista
+É dever de todo jogador atuar e interpretar seu personagem da forma mais coerente e verossímil possível, respeitando:
+* Os limites físicos e emocionais do personagem;
+* A atmosfera urbana e as leis da cidade;
+* O bom senso em todas as interações sociais.
+
+### 1.2. Proibição de RP Ilegal de Legal
+É expressamente proibido que personagens com ocupações e cargos legais (ex.: policiais, socorristas, médicos, juízes e funcionários públicos) realizem ações criminais ou auxiliem o crime organizado sem autorização prévia e expressa da Administração.
+
+---
+
+## 2. Infrações Clássicas de Roleplay
+
+| Sigla / Conceito | Significado | Descrição e Regulamentação |
+| :--- | :--- | :--- |
+| **RDM** | *Random Deathmatch* | Proibido alvejar, espancar ou matar outro jogador sem motivo evidente e contextualizado no RP. |
+| **VDM** | *Vehicle Deathmatch* | Proibido utilizar veículos como armas letais para atropelar, prensar ou arremessar jogadores propositalmente. |
+| **MG** | *Meta Gaming* | Proibido utilizar dados obtidos fora do jogo (Discord, lives, conversas OOC) para obter vantagens no RP. |
+| **CL** | *Combat Logging* | Proibido desconectar-se ou forçar fechamento do jogo para se esquivar de abordagens, perseguições, assaltos ou prisões. |
+| **Amor à Vida** | *Preservação Pessoal* | É obrigatório demonstrar receio pela própria integridade física perante mira de arma de fogo ou risco de morte iminente. |
+| **MF** | *Multi-Farm* | Proibido explorar rotas de trabalho simultâneas ou esquemas ilícitos de acúmulo de patrimônio. Todos os dados são auditados nos logs. |
+
+---
+
+## 3. Diretrizes de Proteção e Zonas de Convivência
+
+### 3.1. Proteção a Jogadores Novatos
+É terminantemente proibido sequestrar, roubar, agredir ou assassinar jogadores novatos. Dê espaço para ambientação e desenvolvimento inicial do personagem.
+
+### 3.2. Zonas Seguras (*Safe Zones*)
+* **Locais Protegidos:** Hospitais, postos médicos, concessionárias, agências de emprego, garagens centrais e pontos de spawn inicial.
+* **Proibição:** É proibido roubar, sequestrar ou cometer homicídios no interior de qualquer Safe Zone.
+* **Exceção de Continuidade:** Caso uma perseguição ou ação criminal tenha sido legitimamente iniciada fora da Safe Zone, ela poderá prosseguir normalmente para o interior do local sem penalidade.
+
+### 3.3. Diretrizes para Cidadãos Civis
+* Civis não possuem autorização para executar sequestros.
+* Civis são terminantemente proibidos de participar de dominações territoriais em favelas ou comunidades.
+
+### 3.4. Interação com a Staff em Serviço
+É terminantemente proibido roubar, render, assaltar ou sequestrar membros da Staff que estejam atuando em modo administrativo de serviço.
+
+### 3.5. Proibição de Divulgação
+Qualquer divulgação de links, comunidades ou servidores concorrentes sem autorização expressa resultará em **Banimento Permanente Imediato**.
+
+---
+
+## 4. Atendimento Médico e Finalização de Jogadores
+
+### 4.1. Prioridade dos Paramédicos (SAMU)
+É expressamente proibido finalizar (executar) jogadores desacordados no chão caso haja equipe médica ou socorristas online e em expediente.
+
+### 4.2. Tempo Limite de Espera
+> [!IMPORTANT]
+> Os envolvidos na ação devem aguardar obrigatoriamente por **⏱️ 10 (dez) minutos cronometrados** pelo socorro médico.  
+> Somente após o esgotamento desse prazo, sem a chegada dos paramédicos, a finalização do jogador estará autorizada.
+
+---
+
+## 5. Código Disciplinar e Sanções
+
+### 5.1. Escala de Penalidades
+As punições serão aplicadas pela Administração de acordo com o histórico e gravidade da infração:
+
+```
+[ Nível 1 ] Advertência Formal (Verbal ou Escrita)
+     │
+[ Nível 2 ] Prisão Administrativa (Cadeia OOC)
+     │
+[ Nível 3 ] Aplicação de Aviso (Strike) à Facção/Corporação
+     │
+[ Nível 4 ] Destituição do Cargo de Liderança
+     │
+[ Nível 5 ] Suspensão Temporária da Conta (Ban Temporário)
+     │
+[ Nível 6 ] Banimento Permanente do Servidor
+```
+
+### 5.2. Soberania da Administração
+A Administração do servidor reserva-se a autonomia e a palavra final na resolução de conflitos, lacunas e casos omissos neste regulamento.
