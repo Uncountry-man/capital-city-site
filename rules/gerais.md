@@ -28,6 +28,13 @@
 | **CL** | *Combat Logging* | Proibido desconectar-se ou forçar fechamento do jogo para se esquivar de abordagens, perseguições, assaltos ou prisões. |
 | **Amor à Vida** | *Preservação Pessoal* | É obrigatório demonstrar receio pela própria integridade física perante mira de arma de fogo ou risco de morte iminente. |
 | **MF** | *Multi-Farm* | Proibido explorar rotas de trabalho simultâneas ou esquemas ilícitos de acúmulo de patrimônio. Todos os dados são auditados nos logs. |
+| **DB** | *Drive-By* | Regulamentação de disparos embarcados. Proibido atirar de dentro do veículo como condutor (P1) e proibido alvejar jogadores a pé de dentro de qualquer veículo. |
+
+### 2.1. Regulamento de Disparos Embarcados (*Drive-By / DB*)
+* **Proibição Absoluta para o Motorista (P1):** É terminantemente proibido ao condutor (**P1**) de qualquer veículo (carros, motos, embarcações ou blindados) efetuar disparos de arma de fogo ou taser na condução. Para atirar, o condutor deve parar completamente o veículo e desembarcar.
+* **Disparos por Passageiros (P2 / P3 / P4):** Os passageiros estão autorizados a atirar de dentro do veículo exclusivamente durante acompanhamentos, perseguições ou confrontos armados contra outros veículos em movimento.
+* **Proibição de Disparos contra Pedestres:** É categoricamente proibido a qualquer ocupante de veículo (mesmo passageiro) atirar de dentro do automóvel contra pedestres ou jogadores que estejam a pé.
+* **Armamento Permitido Embarcado:** Disparos de dentro do veículo só são autorizados com armas de porte leve compatíveis com o uso veicular (Pistolas e Submetralhadoras/SMGs). É expressamente proibido disparar fuzis pesados (como M4, AK) ou escopetas (Shotguns) pelas janelas de veículos comuns.
 
 ---
 

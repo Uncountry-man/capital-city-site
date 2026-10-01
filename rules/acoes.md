@@ -71,6 +71,12 @@ Caso a abordagem evolua para acompanhamento tático (fuga em veículos), ambos o
 > [!WARNING]
 > **Perda Imediata do Direito de Reação:** Se a chegada de reforços policiais fizer com que a corporação passe a estar em superioridade numérica, a permissão de reação dos suspeitos é **revogada imediatamente**. É terminantemente proibido prosseguir com disparos após a consolidação da superioridade policial.
 
+### 3.1. Troca de Tiros em Fuga e Disparos Embarcados (*Drive-By*)
+* **Condutor (P1) Não Atira:** O motorista/piloto do veículo em fuga ou da viatura policial nunca pode atirar enquanto dirige. Para engajar em combate, é obrigatório parar o veículo e desembarcar.
+* **Disparos Exclusivos por Passageiros (P2+):** Apenas os passageiros devidamente embarcados podem efetuar disparos de dentro do veículo contra o veículo adversário (visando pneus ou lataria).
+* **Vedado Disparo contra Indivíduos a Pé:** Em nenhuma circunstância é permitido a ocupantes de veículos atirar de dentro do carro contra suspeitos, civis ou policiais que já estejam a pé no chão.
+* **Armamento Permitido:** Permitido somente o emprego de armas leves/secundárias (pistolas e submetralhadoras/SMGs). Fuzis de grosso calibre (M4/AK) ou escopetas não podem ser disparados de dentro das janelas de veículos comuns.
+
 ---
 
 ## 4. Prisões, Condução e Uso de Algemas

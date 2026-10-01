@@ -38,23 +38,30 @@
 | **CL** | *Combat Logging* | Proibido deslogar ou fechar o jogo para se esquivar de abordagens, perseguições, prisões, assaltos ou morte. |
 | **Amor à Vida** | *Preservação Pessoal* | É obrigatório demonstrar receio pela própria vida perante armas apontadas ou ameaças graves iminentes. |
 | **MF** | *Multi-Farm* | Proibido explorar rotas de coleta ou sistemas simultâneos de farm ilícito. Todos os registros são monitorados via logs. |
+| **DB** | *Drive-By* | Regulamentação de disparos embarcados. Proibido atirar de dentro do veículo como condutor (P1) e proibido alvejar jogadores a pé de dentro de qualquer veículo. |
 
-### 1.4. Proteção a Novatos
+### 1.4. Regulamento de Disparos Embarcados (*Drive-By / DB*)
+* **Proibição Absoluta para o Motorista (P1):** É terminantemente proibido ao condutor (**P1**) de qualquer veículo (carros, motos, embarcações ou blindados) efetuar disparos de arma de fogo ou taser na condução. Para atirar, o condutor deve parar completamente o veículo e desembarcar.
+* **Disparos por Passageiros (P2 / P3 / P4):** Os passageiros estão autorizados a atirar de dentro do veículo exclusivamente durante acompanhamentos, perseguições ou confrontos armados contra outros veículos em movimento.
+* **Proibição de Disparos contra Pedestres:** É categoricamente proibido a qualquer ocupante de veículo (mesmo passageiro) atirar de dentro do automóvel contra pedestres ou jogadores que estejam a pé.
+* **Armamento Permitido Embarcado:** Disparos de dentro do veículo só são autorizados com armas de porte leve compatíveis com o uso veicular (Pistolas e Submetralhadoras/SMGs). É expressamente proibido disparar fuzis pesados (como M4, AK) ou escopetas (Shotguns) pelas janelas de veículos comuns.
+
+### 1.5. Proteção a Novatos
 É expressamente proibido sequestrar, roubar, agredir ou matar jogadores recém-chegados (novatos). Respeite a curva de aprendizado e adaptação desses membros.
 
-### 1.5. Zonas Seguras (*Safe Zones*)
+### 1.6. Zonas Seguras (*Safe Zones*)
 * Locais determinados como Safe Zones (hospitais, concessionárias, áreas públicas e spawns iniciais) contam com imunidade contra ações criminosas.
 * É proibido matar, sequestrar ou roubar em seu interior.
 * **Exceção de Continuidade:** Caso uma ação criminal ou perseguição tenha se originado fora da Safe Zone, ela poderá se estender para o interior da zona sem penalidade.
 
-### 1.6. Regras Específicas para Civis
+### 1.7. Regras Específicas para Civis
 * Civis não possuem autorização para executar sequestros.
 * Civis são terminantemente proibidos de participar ou realizar tomadas/dominações territoriais em favelas.
 
-### 1.7. Interação com a Staff em Serviço
+### 1.8. Interação com a Staff em Serviço
 É estritamente proibido assaltar, sequestrar ou hostilizar membros da Staff que estejam exercendo atividades administrativas (modo de trabalho).
 
-### 1.8. Divulgação Não Autorizada
+### 1.9. Divulgação Não Autorizada
 Divulgar comunidades, links de servidores concorrentes ou projetos não homologados resulta em **Banimento Permanente Imediato**.
 
 ---
@@ -202,13 +209,19 @@ Identificada a presença não autorizada de terceiros, a organização poderá e
 > [!WARNING]
 > **Perda Imediata do Direito de Reação:** Se a chegada do reforço policial conceder superioridade numérica à corporação, a autorização de confronto por parte dos suspeitos é **imediatamente revogada**. O descumprimento sujeitará os envolvidos a punição administrativa.
 
-### 6.3. Prisões e Condução Policial
+### 6.3. Troca de Tiros em Fuga e Disparos Embarcados (*Drive-By*)
+* **Condutor (P1) Não Atira:** O motorista/piloto do veículo em fuga ou da viatura policial nunca pode atirar enquanto dirige. Para engajar em combate, é obrigatório parar o veículo e desembarcar.
+* **Disparos Exclusivos por Passageiros (P2+):** Apenas os passageiros devidamente embarcados podem efetuar disparos de dentro do veículo contra o veículo adversário (visando pneus ou lataria).
+* **Vedado Disparo contra Indivíduos a Pé:** Em nenhuma circunstância é permitido a ocupantes de veículos atirar de dentro do carro contra suspeitos, civis ou policiais que já estejam a pé no chão.
+* **Armamento Permitido:** Permitido somente o emprego de armas leves/secundárias (pistolas e submetralhadoras/SMGs). Fuzis de grosso calibre (M4/AK) ou escopetas não podem ser disparados de dentro das janelas de veículos comuns.
+
+### 6.4. Prisões e Condução Policial
 * Prisões em massa exigem superioridade numérica das forças estatais.
 * Indivíduos prestando escolta ou auxílio direto a criminosos durante a ocorrência são considerados partícipes e podem ser autuados conforme o contexto fático.
 * **Condição de Algemado:** Assim que for algemado, o suspeito perde qualquer direito de reação.
 * **Uso de Comunicação Sob Custódia:** O jogador algemado está proibido de enviar coordenadas, emitir alertas ou solicitar reforço (por voz, chat, rádio ou canais externos).
 
-### 6.4. Diretrizes sobre Sequestros
+### 6.5. Diretrizes sobre Sequestros
 * O regulamento pormenorizado do cativeiro e negociação será integrado após a introdução da mecânica dedicada no servidor.
 * Permanecem aplicáveis as vedações gerais: proibido sequestrar novatos, proibido sequestrar civis desarmados sem fundamentação prévia e proibido sequestrar Staff em serviço.
 
@@ -282,7 +295,12 @@ Em acompanhamentos desencadeados no mar ou lagoas, o emprego de armamento letal 
 * Emprego restrito à contenção de suspeitos em fuga a pé ou em controle de tumultos.
 * **Proibição Crítica:** O motorista da viatura (**P1**) está terminantemente proibido de disparar o taser de dentro do veículo.
 
-### 8.6. Restrições no Porte de Armamentos Longos
+### 8.6. Disparos Embarcados em Acompanhamento Tático (*Drive-By Policial*)
+* **Condutor da Viatura (P1):** É terminantemente proibido ao policial condutor (**P1**) efetuar disparos de arma de fogo ou taser de dentro da viatura ao volante. Sua função é estritamente a direção defensiva e condução da viatura.
+* **Atirador Embarcado (P2 / P3 / P4):** Somente o policial passageiro está autorizado a atirar de dentro da viatura, com disparos voltados preferencialmente contra os pneus do veículo em fuga, após desobedecidas sucessivas ordens de parada ou em resposta imediata a agressão armada iniciada pelos suspeitos.
+* **Vedado Disparo contra Suspeitos a Pé:** É expressamente proibido atirar de dentro da viatura contra suspeitos em fuga a pé. A guarnição deve desembarcar para realizar o cerco ou confronto a pé.
+
+### 8.7. Restrições no Porte de Armamentos Longos
 Fuzis e submetralhadoras de grosso calibre (**M4 e MP5**) são proibidos no patrulhamento padrão.
 
 | Armamento | Patrulha Comum | Operações Especiais | Invasão a Favelas | Banco & Joalheria |
@@ -291,7 +309,7 @@ Fuzis e submetralhadoras de grosso calibre (**M4 e MP5**) são proibidos no patr
 
 > O disparo letal contra veículos e cidadãos é condicionado à existência de ameaça concreta e armada à guarnição ou a terceiros.
 
-### 8.7. Conduta e Integridade da Corporação
+### 8.8. Conduta e Integridade da Corporação
 * Algemas devem ser empregadas estritamente em flagrantes, foragidos catalogados ou contenção de tentativa de fuga.
 * Proibido o transporte de custodiados na garupa de motocicletas.
 * Agentes à paisana são proibidos de intervir em ocorrências sem ostentar prévia identificação funcional.
@@ -299,12 +317,12 @@ Fuzis e submetralhadoras de grosso calibre (**M4 e MP5**) são proibidos no patr
 * Infiltrações em facções criminosas são proibidas.
 * O uso de viaturas oficiais para deslocamentos de caráter pessoal é punível disciplinarmente.
 
-### 8.8. Ocorrências Prioritárias (Banco Central e Joalheria)
+### 8.9. Ocorrências Prioritárias (Banco Central e Joalheria)
 * Ao soar o alerta de roubo a Banco ou Joalheria, todas as guarnições de serviço devem priorizar o atendimento imediato da ocorrência.
 * O **BAEP** assume a liderança tática e o gerenciamento da cena, devendo todas as demais corporações subordinar-se às suas ordens operacionais.
 * Concluída a fuga dos criminosos, todas as corporações estão aptas a participar do acompanhamento tático.
 
-### 8.9. Incursões em Favelas e Comunidades
+### 8.10. Incursões em Favelas e Comunidades
 Para a deflagração de intervenções táticas em comunidades, exige-se o seguinte efetivo mínimo:
 * Presença confirmada de: **Líder + Sublíder + 8 Oficiais da corporação**.
 * Limite operacional de no máximo **2 corporações** atuando no mesmo evento.

@@ -11,7 +11,7 @@ Repositório oficial do website e da central de diretrizes e regras do **Capital
 
 | Módulo | Documento | Descrição |
 | :--- | :--- | :--- |
-| 🏛️ **Gerais** | [rules/gerais.md](./rules/gerais.md) | Princípios de Roleplay, RDM, VDM, Safe Zones, SAMU e punições. |
+| 🏛️ **Gerais** | [rules/gerais.md](./rules/gerais.md) | Princípios de Roleplay, RDM, VDM, DB (Drive-By), Safe Zones, SAMU e punições. |
 | 🛡️ **Segurança** | [rules/seguranca.md](./rules/seguranca.md) | Anticheat, mods proibidos, VPN, verificação/screenshare e denúncias. |
 | 🏴 **Organizações** | [rules/organizacoes.md](./rules/organizacoes.md) | Sistema de avisos/strikes, cofre, produção de armas/drogas e comércio. |
 | 👮 **Corporações** | [rules/corporacoes.md](./rules/corporacoes.md) | Patrulhas, manobra PIT, armas pesadas, operações em favelas e BAEP. |

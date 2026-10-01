@@ -33,6 +33,11 @@ Em acompanhamentos desencadeados no mar, baías ou canais aquáticos, o uso de a
 * > [!CAUTION]
   > **Proibição Crítica para P1:** O motorista da viatura (**P1**) está terminantemente proibido de disparar taser de dentro do veículo em movimento.
 
+### 2.4. Disparos Embarcados em Acompanhamento Tático (*Drive-By Policial*)
+* **Condutor da Viatura (P1):** É terminantemente proibido ao policial condutor (**P1**) efetuar disparos de arma de fogo ou taser de dentro da viatura ao volante. Sua função é estritamente a direção defensiva e condução da viatura.
+* **Atirador Embarcado (P2 / P3 / P4):** Somente o policial passageiro está autorizado a atirar de dentro da viatura, com disparos voltados preferencialmente contra os pneus do veículo em fuga, após desobedecidas sucessivas ordens de parada ou em resposta imediata a agressão armada iniciada pelos suspeitos.
+* **Vedado Disparo contra Suspeitos a Pé:** É expressamente proibido atirar de dentro da viatura contra suspeitos em fuga a pé. A guarnição deve desembarcar para realizar o cerco ou confronto a pé.
+
 ---
 
 ## 3. Matriz de Emprego de Armamento Letal
