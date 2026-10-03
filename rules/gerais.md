@@ -33,6 +33,7 @@
 ### 2.1. Regulamento de Disparos Embarcados (*Drive-By / DB*)
 * **Proibição Absoluta para o Motorista (P1):** É terminantemente proibido ao condutor (**P1**) de qualquer veículo (carros, motos, embarcações ou blindados) efetuar disparos de arma de fogo ou taser na condução. Para atirar, o condutor deve parar completamente o veículo e desembarcar.
 * **Disparos por Passageiros (P2 / P3 / P4):** Os passageiros estão autorizados a atirar de dentro do veículo exclusivamente durante acompanhamentos, perseguições ou confrontos armados contra outros veículos em movimento.
+* **Condição de Colisão em Fugas:** Em perseguições veiculares, só é permitido atirar de dentro do carro se o veículo em fuga sofrer uma colisão significativa (como rodar/girar na pista ou ser obrigado a parar para se recompor). Batidas leves, como esbarrões ou bater em um poste/guia sem que ocorra perda de controle ou alteração na fuga, **não tornam cabível** o disparo embarcado.
 * **Proibição de Disparos contra Pedestres:** É categoricamente proibido a qualquer ocupante de veículo (mesmo passageiro) atirar de dentro do automóvel contra pedestres ou jogadores que estejam a pé.
 * **Armamento Permitido Embarcado:** Disparos de dentro do veículo só são autorizados com armas de porte leve compatíveis com o uso veicular (Pistolas e Submetralhadoras/SMGs). É expressamente proibido disparar fuzis pesados (como M4, AK) ou escopetas (Shotguns) pelas janelas de veículos comuns.
 

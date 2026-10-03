@@ -74,6 +74,7 @@ Caso a abordagem evolua para acompanhamento tático (fuga em veículos), ambos o
 ### 3.1. Troca de Tiros em Fuga e Disparos Embarcados (*Drive-By*)
 * **Condutor (P1) Não Atira:** O motorista/piloto do veículo em fuga ou da viatura policial nunca pode atirar enquanto dirige. Para engajar em combate, é obrigatório parar o veículo e desembarcar.
 * **Disparos Exclusivos por Passageiros (P2+):** Apenas os passageiros devidamente embarcados podem efetuar disparos de dentro do veículo contra o veículo adversário (visando pneus ou lataria).
+* **Condição Obrigatória para Disparo em Fuga (Colisão Grave):** Durante perseguições, só é cabível efetuar disparos de dentro do veículo se o carro adversário sofrer uma batida significativa — isto é, uma colisão que desestabilize o automóvel de verdade, como rodar/girar na pista ou obrigar o motorista a parar para se recompor. Batidas leves, raspões ou bater em um poste/guia sem que nada aconteça (com o veículo seguindo normalmente sem perder o controle) **não tornam cabível** o disparo de dentro do carro.
 * **Vedado Disparo contra Indivíduos a Pé:** Em nenhuma circunstância é permitido a ocupantes de veículos atirar de dentro do carro contra suspeitos, civis ou policiais que já estejam a pé no chão.
 * **Armamento Permitido:** Permitido somente o emprego de armas leves/secundárias (pistolas e submetralhadoras/SMGs). Fuzis de grosso calibre (M4/AK) ou escopetas não podem ser disparados de dentro das janelas de veículos comuns.
 

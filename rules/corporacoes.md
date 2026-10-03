@@ -36,6 +36,7 @@ Em acompanhamentos desencadeados no mar, baías ou canais aquáticos, o uso de a
 ### 2.4. Disparos Embarcados em Acompanhamento Tático (*Drive-By Policial*)
 * **Condutor da Viatura (P1):** É terminantemente proibido ao policial condutor (**P1**) efetuar disparos de arma de fogo ou taser de dentro da viatura ao volante. Sua função é estritamente a direção defensiva e condução da viatura.
 * **Atirador Embarcado (P2 / P3 / P4):** Somente o policial passageiro está autorizado a atirar de dentro da viatura, com disparos voltados preferencialmente contra os pneus do veículo em fuga, após desobedecidas sucessivas ordens de parada ou em resposta imediata a agressão armada iniciada pelos suspeitos.
+* **Critério de Impacto para Disparos em Fuga:** Disparos de dentro da viatura contra o veículo em fuga só são cabíveis se o suspeito sofrer uma colisão expressiva que o faça rodar/girar ou ter que parar para se recompor. Bater de raspão em postes ou pequenos obstáculos sem que nada aconteça ao veículo não é cabível para efetuar disparos embarcados.
 * **Vedado Disparo contra Suspeitos a Pé:** É expressamente proibido atirar de dentro da viatura contra suspeitos em fuga a pé. A guarnição deve desembarcar para realizar o cerco ou confronto a pé.
 
 ---

@@ -43,6 +43,7 @@
 ### 1.4. Regulamento de Disparos Embarcados (*Drive-By / DB*)
 * **Proibição Absoluta para o Motorista (P1):** É terminantemente proibido ao condutor (**P1**) de qualquer veículo (carros, motos, embarcações ou blindados) efetuar disparos de arma de fogo ou taser na condução. Para atirar, o condutor deve parar completamente o veículo e desembarcar.
 * **Disparos por Passageiros (P2 / P3 / P4):** Os passageiros estão autorizados a atirar de dentro do veículo exclusivamente durante acompanhamentos, perseguições ou confrontos armados contra outros veículos em movimento.
+* **Condição de Colisão em Fugas:** Em perseguições veiculares, só é permitido atirar de dentro do carro se o veículo em fuga sofrer uma colisão significativa (como rodar/girar na pista ou ser obrigado a parar para se recompor). Batidas leves, como esbarrões ou bater em um poste/guia sem que ocorra perda de controle ou alteração na fuga, **não tornam cabível** o disparo embarcado.
 * **Proibição de Disparos contra Pedestres:** É categoricamente proibido a qualquer ocupante de veículo (mesmo passageiro) atirar de dentro do automóvel contra pedestres ou jogadores que estejam a pé.
 * **Armamento Permitido Embarcado:** Disparos de dentro do veículo só são autorizados com armas de porte leve compatíveis com o uso veicular (Pistolas e Submetralhadoras/SMGs). É expressamente proibido disparar fuzis pesados (como M4, AK) ou escopetas (Shotguns) pelas janelas de veículos comuns.
 
@@ -212,6 +213,7 @@ Identificada a presença não autorizada de terceiros, a organização poderá e
 ### 6.3. Troca de Tiros em Fuga e Disparos Embarcados (*Drive-By*)
 * **Condutor (P1) Não Atira:** O motorista/piloto do veículo em fuga ou da viatura policial nunca pode atirar enquanto dirige. Para engajar em combate, é obrigatório parar o veículo e desembarcar.
 * **Disparos Exclusivos por Passageiros (P2+):** Apenas os passageiros devidamente embarcados podem efetuar disparos de dentro do veículo contra o veículo adversário (visando pneus ou lataria).
+* **Condição Obrigatória para Disparo em Fuga (Colisão Grave):** Durante perseguições, só é cabível efetuar disparos de dentro do veículo se o carro adversário sofrer uma batida significativa — isto é, uma colisão que desestabilize o automóvel de verdade, como rodar/girar na pista ou obrigar o motorista a parar para se recompor. Batidas leves, raspões ou bater em um poste/guia sem que nada aconteça (com o veículo seguindo normalmente sem perder o controle) **não tornam cabível** o disparo de dentro do carro.
 * **Vedado Disparo contra Indivíduos a Pé:** Em nenhuma circunstância é permitido a ocupantes de veículos atirar de dentro do carro contra suspeitos, civis ou policiais que já estejam a pé no chão.
 * **Armamento Permitido:** Permitido somente o emprego de armas leves/secundárias (pistolas e submetralhadoras/SMGs). Fuzis de grosso calibre (M4/AK) ou escopetas não podem ser disparados de dentro das janelas de veículos comuns.
 
@@ -298,6 +300,7 @@ Em acompanhamentos desencadeados no mar ou lagoas, o emprego de armamento letal 
 ### 8.6. Disparos Embarcados em Acompanhamento Tático (*Drive-By Policial*)
 * **Condutor da Viatura (P1):** É terminantemente proibido ao policial condutor (**P1**) efetuar disparos de arma de fogo ou taser de dentro da viatura ao volante. Sua função é estritamente a direção defensiva e condução da viatura.
 * **Atirador Embarcado (P2 / P3 / P4):** Somente o policial passageiro está autorizado a atirar de dentro da viatura, com disparos voltados preferencialmente contra os pneus do veículo em fuga, após desobedecidas sucessivas ordens de parada ou em resposta imediata a agressão armada iniciada pelos suspeitos.
+* **Critério de Impacto para Disparos em Fuga:** Disparos de dentro da viatura contra o veículo em fuga só são cabíveis se o suspeito sofrer uma colisão expressiva que o faça rodar/girar ou ter que parar para se recompor. Bater de raspão em postes ou pequenos obstáculos sem que nada aconteça ao veículo não é cabível para efetuar disparos embarcados.
 * **Vedado Disparo contra Suspeitos a Pé:** É expressamente proibido atirar de dentro da viatura contra suspeitos em fuga a pé. A guarnição deve desembarcar para realizar o cerco ou confronto a pé.
 
 ### 8.7. Restrições no Porte de Armamentos Longos
