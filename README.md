@@ -4,6 +4,7 @@ Repositório oficial do website e da central de diretrizes e regras do **Capital
 
 * 🌐 **Website Oficial (GitHub Pages):** [uncountry-man.github.io/capital-city-site](https://uncountry-man.github.io/capital-city-site/)
 * 📖 **Central de Regras:** Consulte o diretório [`rules/`](./rules/) para a documentação completa.
+* 🛒 **Loja e painel de vendas:** código em [`store/`](./store/), [`admin/`](./admin/) e [`server/`](./server/); implantação e integração com o SA-MP em [docs/LOJA.md](./docs/LOJA.md).
 
 ---
 

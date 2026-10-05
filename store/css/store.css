@@ -1,0 +1,1327 @@
+/* ==========================================================================
+   CAPITAL CITY — LOJA & PAINEL
+   Extensão do design system de css/style.css (mesmos tokens, fontes, botões
+   e cortes diagonais). Mobile-first: base para 360px, ampliações por min-width.
+   ========================================================================== */
+
+:root {
+  --cc-topbar-h: 56px;
+  --cc-buybar-h: 72px;
+  --cc-radius-line: rgba(255, 255, 255, 0.08);
+  --cc-line-strong: rgba(255, 255, 255, 0.14);
+  --cc-safe-top: env(safe-area-inset-top, 0px);
+  --cc-safe-bottom: env(safe-area-inset-bottom, 0px);
+  --cc-safe-left: env(safe-area-inset-left, 0px);
+  --cc-safe-right: env(safe-area-inset-right, 0px);
+  --cc-gutter: max(16px, var(--cc-safe-left));
+}
+
+.cc-app {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px) 0 0 / 48px 48px,
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px) 0 0 / 48px 48px,
+    var(--bg-main);
+}
+
+.cc-skip {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 300;
+  background: var(--blue);
+  color: #fff;
+  padding: 0.5rem 1rem;
+}
+
+.cc-skip:focus {
+  left: 0.5rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--cyan-bright);
+  outline-offset: 2px;
+}
+
+.cc-main {
+  flex: 1;
+  width: 100%;
+  padding-bottom: 24px;
+  outline: none;
+}
+
+/* Sem rodapé (modo incorporado), o conteúdo precisa de espaço para a barra fixa */
+.cc-embed .cc-main {
+  padding-bottom: calc(var(--cc-buybar-h) + 24px + var(--cc-safe-bottom));
+}
+
+.cc-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1rem max(16px, var(--cc-safe-right)) 0 max(16px, var(--cc-safe-left));
+}
+
+.cc-narrow {
+  max-width: 640px;
+}
+
+/* --------------------------------------------------------------------------
+   Barra superior (compacta; o header do site é ocultado no mobile, este não)
+   -------------------------------------------------------------------------- */
+.cc-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding-top: var(--cc-safe-top);
+  background: rgba(7, 12, 18, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--cc-radius-line);
+}
+
+.cc-topbar-row {
+  height: var(--cc-topbar-h);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 max(12px, var(--cc-safe-right)) 0 max(12px, var(--cc-safe-left));
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cc-brand {
+  min-width: 0;
+}
+
+.cc-brand-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.cc-topbar-nav {
+  display: none;
+  gap: 1.5rem;
+  margin-left: auto;
+}
+
+.cc-topbar-nav a {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text-2);
+  padding: 0.5rem 0;
+}
+
+.cc-topbar-nav a:hover {
+  color: #fff;
+}
+
+.cc-topbar-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.cc-icon-btn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-1);
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.cc-icon-btn:active {
+  background: var(--bg-elevated);
+}
+
+.cc-danger {
+  color: #f87171;
+  background: transparent;
+}
+
+.cc-avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cc-cart-count {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  font-family: var(--font-hud);
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 9px;
+}
+
+.cc-embed [data-hide-embed] {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   Tipografia
+   -------------------------------------------------------------------------- */
+.cc-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 5vw, 2.2rem);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin-bottom: 0.35rem;
+  overflow-wrap: anywhere;
+}
+
+.cc-h2 {
+  font-size: 1.15rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.cc-h3 {
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cc-sub {
+  color: var(--text-2);
+  font-size: 0.95rem;
+}
+
+.cc-text {
+  color: var(--text-2);
+  font-size: 0.93rem;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.cc-muted {
+  color: var(--text-3);
+  font-size: 0.85rem;
+}
+
+.cc-hint {
+  color: var(--text-3);
+  font-size: 0.8rem;
+  margin-top: 0.6rem;
+}
+
+.cc-eyebrow {
+  display: inline-block;
+  font-family: var(--font-hud);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 0.25rem;
+}
+
+.cc-error {
+  color: #f87171;
+  font-size: 0.88rem;
+}
+
+.cc-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  min-height: 44px;
+  color: var(--text-2);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.cc-hero {
+  padding: 0.5rem 0 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Categorias (chips roláveis — sem hover, alvo de toque >= 40px)
+   -------------------------------------------------------------------------- */
+.cc-chips {
+  position: sticky;
+  top: calc(var(--cc-topbar-h) + var(--cc-safe-top));
+  z-index: 20;
+  display: flex;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0.75rem calc(-1 * var(--cc-gutter)) 1rem;
+  padding: 0.6rem var(--cc-gutter);
+  background: linear-gradient(180deg, rgba(7, 12, 18, 0.96) 70%, rgba(7, 12, 18, 0));
+  min-height: 60px;
+}
+
+.cc-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.cc-chip {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 40px;
+  padding: 0 0.95rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+  white-space: nowrap;
+}
+
+.cc-chip svg {
+  color: var(--blue);
+}
+
+.cc-chip.active {
+  color: #fff;
+  background: var(--blue);
+}
+
+.cc-chip.active svg {
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Grade de produtos (2 colunas em 360px; cards compactos)
+   -------------------------------------------------------------------------- */
+.cc-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.cc-section {
+  margin-bottom: 0.5rem;
+}
+
+.cc-rail {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 70%;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin: 0 calc(-1 * var(--cc-gutter));
+  padding: 0 var(--cc-gutter) 0.25rem;
+}
+
+.cc-rail::-webkit-scrollbar {
+  display: none;
+}
+
+.cc-rail > * {
+  scroll-snap-align: start;
+}
+
+.cc-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-card);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.cc-card:active {
+  transform: scale(0.985);
+}
+
+.cc-card-off {
+  opacity: 0.6;
+}
+
+.cc-card-img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--bg-elevated);
+}
+
+.cc-card-img img,
+.cc-product-img img,
+.cc-line-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cc-img-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  background:
+    radial-gradient(circle at 50% 40%, rgba(14, 165, 233, 0.14), transparent 65%),
+    var(--bg-elevated);
+}
+
+.cc-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  padding: 0.7rem 0.75rem 0.85rem;
+  flex: 1;
+}
+
+.cc-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.cc-card-desc {
+  font-size: 0.78rem;
+  color: var(--text-3);
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cc-card-foot {
+  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  padding-top: 0.25rem;
+}
+
+.cc-tag {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-family: var(--font-hud);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(7, 12, 18, 0.82);
+  padding: 0.2rem 0.5rem;
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-tag-sale {
+  background: var(--emerald);
+}
+
+.cc-price {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.cc-price strong {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.cc-price-old {
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+.cc-price-lg strong {
+  font-size: 1.7rem;
+}
+
+.cc-price-lg .cc-price-old {
+  font-size: 0.9rem;
+}
+
+/* --------------------------------------------------------------------------
+   Badges e estados
+   -------------------------------------------------------------------------- */
+.cc-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  clip-path: var(--clip-game-sm);
+  white-space: nowrap;
+}
+
+.cc-badge-amber { color: #fbbf24; background: rgba(245, 158, 11, 0.14); }
+.cc-badge-emerald { color: #34d399; background: rgba(16, 185, 129, 0.14); }
+.cc-badge-red { color: #f87171; background: rgba(239, 68, 68, 0.14); }
+.cc-badge-muted { color: var(--text-2); background: rgba(255, 255, 255, 0.06); }
+.cc-badge-blue { color: var(--cyan-bright); background: rgba(14, 165, 233, 0.14); }
+
+.cc-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--text-3);
+}
+
+.cc-dot-amber { background: var(--amber); box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.15); }
+.cc-dot-emerald { background: var(--emerald); box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15); }
+.cc-dot-red { background: var(--red); box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.15); }
+
+.cc-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+  padding: 2.5rem 1rem;
+}
+
+.cc-state h3 {
+  font-size: 1.1rem;
+}
+
+.cc-state p {
+  color: var(--text-2);
+  font-size: 0.92rem;
+  max-width: 36ch;
+}
+
+.cc-state-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue);
+  background: rgba(14, 165, 233, 0.1);
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-state-error,
+.cc-state-red { color: #f87171; background: rgba(239, 68, 68, 0.1); }
+.cc-state-emerald { color: #34d399; background: rgba(16, 185, 129, 0.12); }
+.cc-state-amber { color: #fbbf24; background: rgba(245, 158, 11, 0.12); }
+.cc-state-muted { color: var(--text-2); background: rgba(255, 255, 255, 0.06); }
+
+/* Skeletons */
+.cc-skel {
+  background: linear-gradient(110deg, var(--bg-card) 8%, var(--bg-elevated) 18%, var(--bg-card) 33%);
+  background-size: 200% 100%;
+  animation: imgSkeletonShimmer 1.6s infinite linear;
+}
+
+.cc-skeleton-card {
+  pointer-events: none;
+}
+
+.cc-skel-line {
+  height: 12px;
+  margin: 0.4rem 0;
+  width: 85%;
+}
+
+.cc-skel-short {
+  width: 45%;
+}
+
+.cc-skel-block {
+  height: 260px;
+  margin-top: 1rem;
+  clip-path: var(--clip-game-card);
+}
+
+.cc-skel-chips {
+  min-height: 60px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc-skel {
+    animation: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Painéis, formulários e botões auxiliares
+   -------------------------------------------------------------------------- */
+.cc-panel {
+  background: var(--bg-card);
+  clip-path: var(--clip-game-card);
+  padding: 1.1rem 1rem 1.2rem;
+  margin-top: 0.85rem;
+  border: 0;
+  min-width: 0;
+}
+
+.cc-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+.cc-row-between {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cc-full {
+  width: 100%;
+  margin-top: 0.85rem;
+}
+
+.cc-link-btn {
+  color: var(--text-2);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  min-height: 44px;
+  padding: 0 0.25rem;
+}
+
+.cc-input,
+.cc-select,
+.cc-textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 0.65rem 0.8rem;
+  font: inherit;
+  font-size: 16px; /* evita zoom automático no iOS */
+  color: var(--text-1);
+  background: var(--bg-main);
+  border: 1px solid var(--cc-line-strong);
+  border-radius: 0;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.cc-input:focus,
+.cc-select:focus,
+.cc-textarea:focus {
+  border-color: var(--blue);
+}
+
+.cc-textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Botões do site sem dependência de hover para touch (mantém os efeitos no desktop) */
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    transform: none;
+  }
+}
+
+.btn {
+  min-height: 44px;
+}
+
+.btn-sm {
+  min-height: 40px;
+}
+
+/* --------------------------------------------------------------------------
+   Produto
+   -------------------------------------------------------------------------- */
+.cc-product {
+  display: grid;
+  gap: 1rem;
+}
+
+.cc-product-img {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  clip-path: var(--clip-game-card);
+  background: var(--bg-elevated);
+}
+
+.cc-product-price {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0.85rem 0;
+}
+
+.cc-facts {
+  display: grid;
+  gap: 1px;
+  background: var(--cc-radius-line);
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-facts > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0.85rem;
+  background: var(--bg-card);
+  font-size: 0.88rem;
+}
+
+.cc-facts dt {
+  color: var(--text-3);
+}
+
+.cc-facts dd {
+  color: var(--text-1);
+  font-weight: 600;
+  text-align: right;
+}
+
+.cc-block {
+  margin-top: 1.2rem;
+}
+
+.cc-benefits {
+  list-style: none;
+  display: grid;
+  gap: 0.45rem;
+}
+
+.cc-benefits li {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  color: var(--text-2);
+  font-size: 0.92rem;
+}
+
+.cc-benefits svg {
+  color: var(--emerald);
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.cc-qty-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  font-weight: 600;
+}
+
+.cc-stepper {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-main);
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-stepper-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-1);
+  background: var(--bg-elevated);
+}
+
+.cc-stepper-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cc-stepper-value {
+  min-width: 2.5rem;
+  text-align: center;
+  font-family: var(--font-hud);
+  font-weight: 700;
+}
+
+/* Barra fixa de compra: sempre ao alcance do polegar, respeitando a safe area */
+.cc-buybar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: var(--cc-buybar-h);
+  padding: 0.7rem max(16px, var(--cc-safe-right)) calc(0.7rem + var(--cc-safe-bottom)) max(16px, var(--cc-safe-left));
+  background: rgba(10, 18, 28, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-top: 1px solid var(--cc-radius-line);
+}
+
+.cc-buybar-total {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  margin-right: auto;
+  min-width: 0;
+}
+
+.cc-buybar-total span {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.cc-buybar-total strong {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.cc-buybar-cta {
+  flex: 0 1 auto;
+  min-height: 48px;
+  padding: 0.7rem 1.3rem;
+}
+
+.cc-buybar-cart {
+  min-height: 48px;
+  width: 52px;
+  padding: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Carrinho, revisão e pedidos
+   -------------------------------------------------------------------------- */
+.cc-lines,
+.cc-orders,
+.cc-review-items,
+.cc-accounts-list {
+  list-style: none;
+}
+
+.cc-lines {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+.cc-line {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.75rem;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-line-img {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-line-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.cc-line-name {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.cc-line-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.cc-summary {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-card);
+}
+
+.cc-summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.3rem 0;
+  font-size: 0.93rem;
+}
+
+.cc-summary-total {
+  border-top: 1px solid var(--cc-radius-line);
+  margin-top: 0.4rem;
+  padding-top: 0.7rem;
+  font-size: 1.05rem;
+}
+
+.cc-review-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.4rem 0;
+  font-size: 0.93rem;
+  color: var(--text-2);
+}
+
+.cc-review-items li span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cc-accounts {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.cc-radio {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  min-height: 48px;
+  padding: 0.5rem 0.75rem;
+  background: var(--bg-main);
+  cursor: pointer;
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-radio input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cc-radio-mark {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--text-3);
+  flex-shrink: 0;
+}
+
+.cc-radio input:checked + .cc-radio-mark {
+  border-color: var(--blue);
+  background: radial-gradient(circle, var(--blue) 45%, transparent 50%);
+}
+
+.cc-radio input:focus-visible + .cc-radio-mark {
+  outline: 2px solid var(--cyan-bright);
+  outline-offset: 2px;
+}
+
+.cc-order-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cc-status-line {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.5rem;
+}
+
+.cc-countdown {
+  font-family: var(--font-hud);
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.cc-qr {
+  width: min(240px, 100%);
+  margin: 1rem auto;
+  padding: 10px;
+  background: #fff;
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-qr img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cc-copy {
+  background: var(--bg-main);
+  padding: 0.7rem;
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-copy-code {
+  display: block;
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  color: var(--text-2);
+  word-break: break-all;
+  max-height: 4.2em;
+  overflow: hidden;
+}
+
+.cc-result {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cc-result .cc-h2 {
+  margin: 0.35rem 0 0;
+}
+
+.cc-delivery {
+  box-shadow: inset 3px 0 0 var(--text-3);
+}
+
+.cc-delivery.cc-result-emerald { box-shadow: inset 3px 0 0 var(--emerald); }
+.cc-delivery.cc-result-amber { box-shadow: inset 3px 0 0 var(--amber); }
+.cc-delivery.cc-result-red { box-shadow: inset 3px 0 0 var(--red); }
+
+.cc-orders {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 0.85rem;
+}
+
+.cc-order-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-order-row > div:first-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.cc-order-row > div:first-child .cc-muted {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cc-order-row-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  text-align: right;
+}
+
+.cc-chevron {
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Conta e login
+   -------------------------------------------------------------------------- */
+.cc-login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.6rem;
+}
+
+.cc-login .cc-h2 {
+  margin: 0.25rem 0 0;
+}
+
+.cc-google-slot {
+  min-height: 44px;
+  margin-top: 0.5rem;
+}
+
+.cc-dev-login {
+  display: grid;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px dashed var(--cc-line-strong);
+}
+
+.cc-code {
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+  margin-top: 0.85rem;
+  padding: 0.85rem;
+  background: var(--bg-main);
+  clip-path: var(--clip-game-sm);
+}
+
+.cc-code code {
+  font-family: var(--font-hud);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--cyan-bright);
+}
+
+.cc-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.cc-profile > div {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cc-profile .cc-muted {
+  overflow-wrap: anywhere;
+}
+
+.cc-avatar-lg {
+  width: 52px;
+  height: 52px;
+  object-fit: cover;
+  clip-path: var(--clip-game-sm);
+  flex-shrink: 0;
+}
+
+.cc-accounts-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--cc-radius-line);
+}
+
+.cc-accounts-list li:last-child {
+  border-bottom: 0;
+}
+
+.cc-accounts-list li > span {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cc-accounts-list svg {
+  color: var(--blue);
+}
+
+/* --------------------------------------------------------------------------
+   Toasts e conexão
+   -------------------------------------------------------------------------- */
+.cc-toasts {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--cc-buybar-h) + 16px + var(--cc-safe-bottom));
+  transform: translateX(-50%);
+  z-index: 200;
+  display: grid;
+  gap: 0.5rem;
+  width: min(420px, calc(100% - 32px));
+  pointer-events: none;
+}
+
+.cc-toast {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  background: rgba(12, 21, 32, 0.98);
+  color: #fff;
+  font-size: 0.9rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+  clip-path: var(--clip-game-sm);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.cc-toast.show {
+  opacity: 1;
+  transform: none;
+}
+
+.cc-toast-ok svg { color: var(--emerald); }
+.cc-toast-error svg { color: #f87171; }
+
+.cc-offline {
+  position: fixed;
+  top: calc(var(--cc-topbar-h) + var(--cc-safe-top));
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #fbbf24;
+  background: rgba(40, 28, 6, 0.95);
+}
+
+.cc-offline[hidden] {
+  display: none;
+}
+
+.cc-footer {
+  padding: 1.5rem 16px calc(var(--cc-buybar-h) + 1.5rem + var(--cc-safe-bottom));
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-3);
+}
+
+.cc-footer a {
+  text-decoration: underline;
+}
+
+.cc-noscript {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   Tablet e desktop
+   -------------------------------------------------------------------------- */
+@media (min-width: 600px) {
+  .cc-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .cc-rail {
+    grid-auto-columns: 40%;
+  }
+
+  .cc-card-body {
+    padding: 0.85rem 0.95rem 1rem;
+  }
+
+  .cc-container {
+    padding-top: 1.5rem;
+  }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --cc-topbar-h: 64px;
+  }
+
+  .cc-topbar-nav {
+    display: flex;
+  }
+
+  .cc-topbar-actions {
+    margin-left: 1.25rem;
+  }
+
+  .cc-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cc-rail {
+    grid-auto-columns: calc(25% - 0.75rem);
+  }
+
+  .cc-card:hover {
+    background: var(--bg-card-hover);
+  }
+
+  .cc-product {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .cc-product-img {
+    position: sticky;
+    top: calc(var(--cc-topbar-h) + 1.5rem);
+    aspect-ratio: 4 / 3;
+  }
+
+  /* No desktop a barra de compra entra no fluxo da página, logo após o conteúdo */
+  .cc-buybar {
+    position: static;
+    margin-top: 1.25rem;
+    clip-path: var(--clip-game-card);
+    border-top: 0;
+    padding: 0.9rem 1rem;
+    background: var(--bg-card);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .cc-product-info .cc-buybar {
+    margin: 1rem 0 1.25rem;
+  }
+
+  .cc-product-info .cc-qty-row {
+    margin-top: 0.75rem;
+  }
+
+  .cc-main {
+    padding-bottom: 48px;
+  }
+
+  .cc-footer {
+    padding-bottom: 1.5rem;
+  }
+
+  .cc-toasts {
+    bottom: 32px;
+  }
+}

@@ -149,6 +149,7 @@ export async function buildApp(opts: BuildOptions): Promise<FastifyInstance> {
     allowedPath: (pathName) => !BLOCKED_STATIC.test(pathName),
     dotfiles: 'deny',
     index: ['index.html'],
+    redirect: true,
     maxAge: config.isProduction ? '1h' : 0,
   });
   mkdirSync(path.resolve(config.uploadDir), { recursive: true });

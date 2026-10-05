@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#070c12">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel de vendas — Capital City</title>
+  <link rel="icon" type="image/jpeg" href="../assets/images/logo.jpg">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../store/css/store.css">
+  <link rel="stylesheet" href="css/admin.css">
+  <script type="module" src="js/admin.js"></script>
+</head>
+
+<body class="cc-app ad-app">
+  <header class="cc-topbar">
+    <div class="cc-topbar-row">
+      <a href="#/" class="brand-link cc-brand" aria-label="Painel">
+        <span class="brand-icon"><img src="../assets/images/logo.jpg" alt="" width="32" height="32"></span>
+        <span class="cc-brand-text">Painel <span class="text-accent">Loja</span></span>
+      </a>
+      <nav class="ad-nav" id="ad-nav" aria-label="Painel">
+        <a href="#/" data-route="dashboard">Visão geral</a>
+        <a href="#/pedidos" data-route="orders">Vendas</a>
+        <a href="#/produtos" data-route="products">Produtos</a>
+        <a href="#/categorias" data-route="categories">Categorias</a>
+        <a href="#/auditoria" data-route="audit">Auditoria</a>
+      </nav>
+      <div class="cc-topbar-actions">
+        <a href="../store/" class="cc-icon-btn" aria-label="Abrir a loja" id="ad-store-link"></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="view" class="cc-main ad-main" tabindex="-1"></main>
+</body>
+
+</html>
