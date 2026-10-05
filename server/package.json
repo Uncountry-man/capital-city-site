@@ -1,0 +1,42 @@
+{
+  "name": "capital-city-store-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API da loja Capital City Roleplay (loja, pagamentos, entregas no SA-MP e painel administrativo)",
+  "type": "module",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "dev": "tsx watch --env-file-if-exists=.env src/index.ts",
+    "build": "tsc -p tsconfig.build.json && node -e \"require('fs').cpSync('src/db/migrations','dist/db/migrations',{recursive:true})\"",
+    "start": "node --env-file-if-exists=.env dist/index.js",
+    "migrate": "tsx --env-file-if-exists=.env src/db/migrate-cli.ts",
+    "admin:grant": "tsx --env-file-if-exists=.env src/scripts/grant-admin.ts",
+    "seed:categories": "tsx --env-file-if-exists=.env src/scripts/seed-categories.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^11.1.2",
+    "@fastify/formbody": "^9.0.0",
+    "@fastify/helmet": "^13.1.1",
+    "@fastify/multipart": "^10.1.2",
+    "@fastify/rate-limit": "^11.2.0",
+    "@fastify/static": "^10.1.5",
+    "fastify": "^5.12.5",
+    "google-auth-library": "^11.1.0",
+    "pg": "^8.23.1",
+    "qrcode": "^1.5.4",
+    "sharp": "^0.35.5",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.4",
+    "@types/pg": "^8.23.1",
+    "@types/qrcode": "^1.5.6",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.3"
+  }
+}
