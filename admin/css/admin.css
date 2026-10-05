@@ -1,0 +1,979 @@
+/* ==========================================================================
+   CAPITAL CITY — PAINEL DE VENDAS
+   Usa os tokens de css/style.css e os componentes de store/css/store.css.
+   Mobile-first: no celular a navegação vira uma faixa rolável abaixo da marca
+   e as tabelas viram cartões.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Navegação
+   -------------------------------------------------------------------------- */
+.ad-app .cc-topbar-row {
+  height: auto;
+  min-height: var(--cc-topbar-h);
+  flex-wrap: wrap;
+  row-gap: 0;
+}
+
+.ad-app .cc-brand {
+  height: var(--cc-topbar-h);
+  display: inline-flex;
+  align-items: center;
+}
+
+.ad-nav {
+  order: 3;
+  flex: 1 0 100%;
+  display: flex;
+  gap: 0.25rem;
+  margin: 0 calc(-1 * max(12px, var(--cc-safe-right))) 0 calc(-1 * max(12px, var(--cc-safe-left)));
+  padding: 0 max(12px, var(--cc-safe-right)) 0.5rem max(12px, var(--cc-safe-left));
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ad-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.ad-nav[hidden] {
+  display: none;
+}
+
+.ad-nav a {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0 0.85rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-2);
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+  white-space: nowrap;
+}
+
+.ad-nav a.active {
+  color: #fff;
+  background: rgba(14, 165, 233, 0.18);
+  box-shadow: inset 0 -2px 0 var(--blue);
+}
+
+.ad-main {
+  padding-bottom: 48px;
+}
+
+/* Rolagens programáticas (ex.: abrir o editor de categoria) não ficam sob a barra fixa */
+html:has(.ad-app) {
+  scroll-padding-top: calc(var(--cc-topbar-h) + 64px + var(--cc-safe-top));
+}
+
+/* --------------------------------------------------------------------------
+   Cabeçalho de página e utilitários
+   -------------------------------------------------------------------------- */
+.ad-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.ad-head .cc-title {
+  margin-bottom: 0;
+}
+
+.ad-head-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ad-block {
+  display: block;
+}
+
+.ad-mt {
+  margin-top: 1.25rem;
+}
+
+.ad-mono {
+  font-family: var(--font-hud);
+  font-size: 0.82rem;
+  overflow-wrap: anywhere;
+}
+
+.ad-num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.ad-btn-danger {
+  color: #fff;
+  background: rgba(239, 68, 68, 0.85);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.ad-btn-danger:active {
+  background: var(--red);
+}
+
+@media (hover: hover) {
+  .ad-btn-danger:hover {
+    background: var(--red);
+  }
+
+  .ad-nav a:hover {
+    color: #fff;
+  }
+}
+
+/* Segmento de período */
+.ad-segment {
+  display: inline-flex;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+  padding: 3px;
+}
+
+.ad-segment button {
+  min-height: 38px;
+  padding: 0 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text-2);
+}
+
+.ad-segment button.active {
+  color: #fff;
+  background: var(--blue);
+  clip-path: var(--clip-game-sm);
+}
+
+/* --------------------------------------------------------------------------
+   Dashboard
+   -------------------------------------------------------------------------- */
+.ad-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.ad-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-height: 96px;
+  padding: 0.85rem 0.9rem;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+  min-width: 0;
+}
+
+.ad-kpi-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ad-kpi-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 4.6vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+.ad-kpi .cc-muted {
+  font-size: 0.8rem;
+}
+
+.ad-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.85rem;
+}
+
+.ad-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 40px;
+  padding: 0 0.85rem;
+  font-size: 0.88rem;
+  color: var(--text-2);
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+}
+
+.ad-pill strong {
+  color: var(--text-1);
+  font-family: var(--font-hud);
+}
+
+.ad-pill-warn {
+  color: #fbbf24;
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.ad-pill-danger {
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.12);
+}
+
+.ad-two {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0 1rem;
+}
+
+.ad-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin: -10px 0 0.1rem;
+}
+
+.ad-panel-head .cc-h3 {
+  margin-bottom: 0;
+}
+
+.ad-rank {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.ad-rank-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.92rem;
+}
+
+.ad-rank-row span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ad-rank-row strong {
+  white-space: nowrap;
+}
+
+.ad-bar {
+  height: 6px;
+  margin: 0.35rem 0 0.2rem;
+  background: var(--bg-elevated);
+}
+
+.ad-bar span {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+}
+
+.ad-list {
+  list-style: none;
+}
+
+.ad-list li + li {
+  border-top: 1px solid var(--cc-radius-line);
+}
+
+.ad-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 56px;
+  padding: 0.55rem 0;
+  color: inherit;
+}
+
+.ad-list-row > div:first-child {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ad-list-row > div:first-child strong {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ad-list-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Filtros, tabelas e paginação
+   -------------------------------------------------------------------------- */
+.ad-filters {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.ad-dates {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ad-filter-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ad-filter-actions .btn {
+  flex: 1;
+}
+
+.ad-filters-inline {
+  max-width: 360px;
+}
+
+/* No celular cada linha da tabela vira um cartão */
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ad-table thead {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+.ad-table tr {
+  display: block;
+  margin-bottom: 0.6rem;
+  padding: 0.75rem 0.9rem;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+}
+
+.ad-table td {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.3rem 0;
+  font-size: 0.9rem;
+  text-align: right;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ad-table td::before {
+  content: attr(data-label);
+  flex-shrink: 0;
+  color: var(--text-3);
+  font-size: 0.78rem;
+  text-align: left;
+}
+
+.ad-table td > div {
+  min-width: 0;
+}
+
+.ad-clickable {
+  cursor: pointer;
+}
+
+.ad-clickable:active {
+  background: var(--bg-elevated);
+}
+
+.ad-pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   Detalhe do pedido
+   -------------------------------------------------------------------------- */
+.ad-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.ad-dl > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--cc-radius-line);
+  font-size: 0.9rem;
+}
+
+.ad-dl > div:last-child {
+  border-bottom: 0;
+}
+
+.ad-dl dt {
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+.ad-dl dd {
+  text-align: right;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.ad-payment + .ad-payment {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--cc-line-strong);
+}
+
+.ad-deliveries {
+  list-style: none;
+}
+
+.ad-deliveries li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--cc-radius-line);
+  font-size: 0.9rem;
+}
+
+.ad-deliveries li:last-child {
+  border-bottom: 0;
+}
+
+.ad-delivery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+}
+
+.ad-timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.ad-timeline::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  background: var(--bg-elevated);
+}
+
+.ad-timeline li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding: 0 0 0.9rem 0.5rem;
+  font-size: 0.9rem;
+}
+
+.ad-timeline li::before {
+  content: '';
+  position: absolute;
+  left: calc(-1rem + 0px);
+  top: 0.35rem;
+  width: 8px;
+  height: 8px;
+  background: var(--blue);
+}
+
+.ad-time {
+  font-family: var(--font-hud);
+  font-size: 0.75rem;
+  color: var(--text-3);
+}
+
+/* --------------------------------------------------------------------------
+   Produtos e categorias
+   -------------------------------------------------------------------------- */
+.ad-products {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ad-product {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--bg-card);
+  clip-path: var(--clip-game-sm);
+}
+
+.ad-off .ad-thumb,
+.ad-off .ad-product-info > :first-child {
+  opacity: 0.55;
+}
+
+.ad-thumb {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  clip-path: var(--clip-game-sm);
+}
+
+.ad-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ad-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  min-width: 0;
+}
+
+.ad-product-info strong,
+.ad-product-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-1);
+  overflow-wrap: anywhere;
+}
+
+.ad-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+}
+
+.ad-product-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ad-product-actions .cc-icon-btn {
+  background: var(--bg-elevated);
+}
+
+.ad-product-actions .btn-sm {
+  flex: 1 1 auto;
+}
+
+.ad-product-actions .cc-icon-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* --------------------------------------------------------------------------
+   Formulários
+   -------------------------------------------------------------------------- */
+.ad-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ad-form > .cc-row {
+  margin-top: 1rem;
+}
+
+.ad-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-top: 0.85rem;
+  min-width: 0;
+}
+
+.ad-panel-head + .ad-field,
+.cc-h3 + .ad-field {
+  margin-top: 0.25rem;
+}
+
+.ad-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.ad-field small {
+  font-size: 0.8rem;
+}
+
+.ad-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 0.85rem;
+}
+
+.ad-check {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-height: 44px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.ad-check input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--blue);
+  flex-shrink: 0;
+}
+
+.ad-image {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ad-image-preview {
+  aspect-ratio: 16 / 10;
+  max-width: 320px;
+  width: 100%;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  clip-path: var(--clip-game-sm);
+}
+
+.ad-image-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.ad-image-empty {
+  width: 100%;
+  height: 100%;
+}
+
+.ad-image-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+}
+
+.ad-image-actions small {
+  flex-basis: 100%;
+}
+
+.ad-upload {
+  position: relative;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+/* O input fica dentro do botão-label, invisível mas acessível pelo teclado */
+.ad-file {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.ad-upload:focus-within {
+  outline: 2px solid var(--cyan-bright);
+  outline-offset: 2px;
+}
+
+.ad-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ad-benefits > .btn {
+  align-self: flex-start;
+}
+
+.ad-benefit-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ad-bundle-item {
+  margin-top: 0.85rem;
+  padding: 0.75rem;
+  background: var(--bg-main);
+  clip-path: var(--clip-game-sm);
+}
+
+.ad-bundle-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.ad-bundle-item + .btn,
+.ad-form .cc-panel > div > .btn {
+  margin-top: 0.85rem;
+}
+
+.ad-icons {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(48px, 1fr));
+  gap: 0.4rem;
+}
+
+.ad-icon-opt {
+  height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  background: var(--bg-main);
+  border: 1px solid var(--cc-line-strong);
+}
+
+.ad-icon-opt.active {
+  color: #fff;
+  background: rgba(14, 165, 233, 0.2);
+  border-color: var(--blue);
+}
+
+/* --------------------------------------------------------------------------
+   Diálogos (nativos; sem dependência de bibliotecas)
+   -------------------------------------------------------------------------- */
+.ad-dialog {
+  width: min(440px, calc(100vw - 32px));
+  max-width: none;
+  margin: auto;
+  padding: 0;
+  color: var(--text-1);
+  background: var(--bg-card);
+  border: 1px solid var(--cc-line-strong);
+}
+
+.ad-dialog::backdrop {
+  background: rgba(2, 6, 10, 0.72);
+}
+
+.ad-dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.1rem 1rem;
+}
+
+.ad-dialog-body .cc-row {
+  margin-top: 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   Telas maiores
+   -------------------------------------------------------------------------- */
+@media (min-width: 600px) {
+  .ad-kpis {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .ad-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ad-filters {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ad-filter-search {
+    grid-column: 1 / -1;
+  }
+
+  .ad-filter-actions .btn {
+    flex: 0 0 auto;
+  }
+
+  .ad-filters-inline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ad-image {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .ad-image-preview {
+    flex: 0 0 240px;
+  }
+
+  .ad-deliveries li {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .ad-delivery-actions {
+    justify-content: flex-end;
+    flex-shrink: 0;
+    max-width: 50%;
+  }
+
+  .ad-dialog-body {
+    padding: 1.4rem 1.4rem 1.2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .ad-nav {
+    order: 0;
+    flex: 0 1 auto;
+    margin: 0 0 0 1.5rem;
+    padding: 0;
+    gap: 0.35rem;
+  }
+
+  .ad-nav a {
+    background: transparent;
+  }
+
+  .ad-app .cc-topbar-actions {
+    margin-left: auto;
+  }
+
+  .ad-kpis {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .ad-two {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .ad-filters {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+  }
+
+  .ad-filter-search {
+    grid-column: auto;
+  }
+
+  .ad-filters-inline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ad-dates {
+    grid-column: 1 / 3;
+  }
+
+  .ad-filter-actions {
+    justify-content: flex-end;
+  }
+
+  /* Tabela de verdade no desktop */
+  .ad-table-wrap {
+    background: var(--bg-card);
+    clip-path: var(--clip-game-card);
+    overflow-x: auto;
+  }
+
+  .ad-table thead {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    display: table-header-group;
+  }
+
+  .ad-table tr {
+    display: table-row;
+    margin: 0;
+    padding: 0;
+    background: none;
+    clip-path: none;
+  }
+
+  .ad-table th,
+  .ad-table td {
+    display: table-cell;
+    padding: 0.8rem 1rem;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--cc-radius-line);
+  }
+
+  .ad-table th {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+
+  .ad-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .ad-table td::before {
+    content: none;
+  }
+
+  .ad-table .ad-num {
+    text-align: right;
+  }
+
+  .ad-col-items {
+    max-width: 420px;
+    color: var(--text-2);
+  }
+
+  .ad-clickable:hover td {
+    background: rgba(255, 255, 255, 0.025);
+  }
+
+  .ad-product {
+    grid-template-columns: 64px minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .ad-product-actions {
+    grid-column: auto;
+    justify-content: flex-end;
+  }
+
+  .ad-product-actions .btn-sm {
+    flex: 0 0 auto;
+  }
+}
